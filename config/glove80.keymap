@@ -121,7 +121,18 @@
             &kp TAB        &kp Q    &kp W       &kp E       &kp R       &kp T                                                                      &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
             &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
             &sk LSHIFT     &kp Z    &kp X       &kp C       &kp V       &kp B   &none       &none       &none      &none     &none     &none       &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &sk RSHIFT
-            &mo MAGIC      &none    &none       &none       &none               &kp BSPC    &kp DEL     &kp LALT   &kp RALT  &kp RET   &kp SPACE           &none   &none       &none       &none       &none
+            &mo MAGIC      &none    &none       &none       &none               &kp BSPC    &kp SPACE   &kp TAB    &kp ESC   &kp DEL   &kp RET             &none   &none       &none       &none       &none
+            >;
+        };
+
+        typing {
+            bindings = <
+            &trans         &trans   &trans      &trans      &trans                                                                                         &trans  &trans      &trans      &trans      &trans
+            &trans         &trans   &trans      &trans      &trans      &trans                                                                     &trans  &trans  &trans      &trans      &trans      &trans
+            &trans         &trans   &trans      &trans      &trans      &trans                                                                     &trans  &trans  &trans      &trans      &trans      &trans
+            &trans         &kp A    &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &trans
+            &trans         &trans   &trans      &trans      &trans      &trans  &trans      &trans       &trans      &trans     &trans     &trans  &trans  &trans   &trans     &trans      &trans      &trans
+            &mo MAGIC      &trans   &trans      &trans      &trans              &kp BSPC    &kp SPACE    &kp TAB     &kp ESC    &kp DEL    &kp RET         &trans   &trans     &trans      &trans      &trans
             >;
         };
 
@@ -133,6 +144,28 @@
             &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
             &sk LSHIFT     &kp Z    &kp X       &kp C       &kp V       &kp B   &none       &none       &none      &none     &none     &none       &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &sk RSHIFT
             &mo MAGIC      &none    &none       &none       &none               &kp BSPC    &kp DEL     &kp LALT   &kp RALT  &kp RET   &kp SPACE           &none   &none       &none       &none       &none
+            >;
+        };
+
+        gaming {
+            bindings = <
+            &trans         &trans   &trans      &trans      &trans                                                                                         &trans   &trans     &trans      &trans      &trans
+            &trans         &trans   &trans      &trans      &trans      &trans                                                                     &trans  &trans   &trans     &trans      &trans      &trans
+            &trans         &trans   &kp W       &trans      &trans      &trans                                                                     &trans  &trans   &kp UP     &trans      &trans      &trans
+            &trans         &kp A    &kp S       &kp D       &trans      &trans                                                                     &trans  &kp LEFT &Kp DONW   &kp RIGHT   &trans      &trans
+            &trans         &trans   &trans      &trans      &trans      &trans  &trans      &trans       &trans      &trans     &trans     &trans  &trans  &trans   &trans     &trans      &trans      &trans
+            &mo MAGIC      &trans   &trans      &trans      &trans              &kp BSPC    &kp SPACE    &kp TAB     &kp ESC    &kp DEL    &kp RET         &trans   &trans     &trans      &trans      &trans
+            >;
+        };
+
+        symbol {
+            bindings = <
+            &none          &none     &none      &none       &none                                                                                            &none      &none       &none       &none       &none
+            &none          &none     &none      &none       &none       &none                                                                      &none     &none      &none       &none       &none       &none
+            &kp EXCL       &kp LBKT  &kp LCBR   &kp RCBR    &kp RBKT    &kp AMPS                                                                   &kp LPAR  &kp BSPC   &kp SPACE   &kp RET     &kp DEL     &kp TAB
+            &kp HASH       &kp CARET &kp EQUAL  &kp UNDER   &kp DLLR    &kp ASTR                                                                   &kp GRAVE &kp RSHIFT &kp RCTRL   &kp RALT    &kp RGUI    &none
+            &kp TILDE      &kp LPAR  &kp PLUS   &kp MINUS   &kp RPAR    &kp PIPE  &none       &none       &none      &none     &none               &kp RPAR  &kp BSPC   &kp TAB     &kp SPACE   &kp RET     &kp RSHIFT
+            &none          &none     &none      &none       &none                 &kp PERCENT &kp AMPS    &none      &none     &none     &none               &none      &none       &none       &none       &none
             >;
         };
 
