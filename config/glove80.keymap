@@ -12,17 +12,17 @@
 #include <dt-bindings/zmk/rgb.h>
 
 // layers
-#define BASE_QWERTY       0
-/* #define DEFAULT           0 */
-#define LOWER             1
-#define MAGIC             2
-#define TYPING            3
-#define BASE_ENTHIUM      4
-#define GAMING            5
-#define SYMBOL            6
-#define NUMBER            7
-#define CURSOR            8
-#define FUNCTION          9
+#define BASE_QWERTY       0   // TekBoArt Base QWERTY layer
+#define DEFAULT           1   // Glove80 default layer
+#define LOWER             2   // Glove80 lower layer
+#define MAGIC             3   // Glove80 magic layer
+#define TYPING            4   // TekBoArt Typing layer
+#define BASE_ENTHIUM      5   // TekBoArt Base Enthium layer
+#define GAMING            6   // TekBoArt Gaming layer
+#define SYMBOL            7   // TekBoArt Symbol layer
+#define NUMBER            8   // TekBoArt Number layer
+#define CURSOR            9   // TekBoArt Cursor layer
+#define FUNCTION          10  // TekBoArt Function layer
 
 / {
     behaviors {
