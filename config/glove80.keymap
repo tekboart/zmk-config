@@ -162,7 +162,7 @@
             bindings = <
             &none          &none     &none      &none       &none                                                                                            &none      &none       &none       &none       &none
             &none          &none     &none      &none       &none       &none                                                                      &none     &none      &none       &none       &none       &none
-            &kp EXCL       &kp LBKT  &kp LCBR   &kp RCBR    &kp RBKT    &kp AMPS                                                                   &kp LPAR  &kp BSPC   &kp SPACE   &kp RET     &kp DEL     &kp TAB
+            &kp EXCL       &kp LBKT  &kp LBRC   &kp RBRC    &kp RBKT    &kp AMPS                                                                   &kp LPAR  &kp BSPC   &kp SPACE   &kp RET     &kp DEL     &kp TAB
             &kp HASH       &kp CARET &kp EQUAL  &kp UNDER   &kp DLLR    &kp ASTR                                                                   &kp GRAVE &kp RSHFT  &kp RCTRL   &kp RALT    &kp RGUI    &none
             &kp TILDE      &kp LPAR  &kp PLUS   &kp MINUS   &kp RPAR    &kp PIPE  &none       &none       &none      &none     &none     &none     &kp RPAR  &kp BSPC   &kp TAB     &kp SPACE   &kp RET     &kp RSHFT
             &none          &none     &none      &none       &none                 &kp PERCENT &kp AMPS    &none      &none     &none     &none               &none      &none       &none       &none       &none
