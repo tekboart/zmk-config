@@ -12,10 +12,10 @@
 #include <dt-bindings/zmk/rgb.h>
 
 // layers
-#define DEFAULT           0
+#define BASE_QWERTY       0
+/* #define DEFAULT           0 */
 #define LOWER             1
 #define MAGIC             2
-#define BASE_QWERTY       3
 #define TYPING            4
 #define BASE_ENTHIUM      5
 #define GAMING            6
