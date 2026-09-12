@@ -12,17 +12,19 @@
 #include <dt-bindings/zmk/rgb.h>
 
 // layers
+// NOTE: These are just aliases for layer numbers. The actual layer numbers are determined by the order of the layers in the keymap.
+// If you change the order of the layers, you must also change the layer numbers below.
 #define BASE_QWERTY       0   // TekBoArt Base QWERTY layer
-#define DEFAULT           1   // Glove80 default layer
-#define LOWER             2   // Glove80 lower layer
-#define MAGIC             3   // Glove80 magic layer
-#define TYPING            4   // TekBoArt Typing layer
-#define BASE_ENTHIUM      5   // TekBoArt Base Enthium layer
-#define GAMING            6   // TekBoArt Gaming layer
-#define SYMBOL            7   // TekBoArt Symbol layer
-#define NUMBER            8   // TekBoArt Number layer
-#define CURSOR            9   // TekBoArt Cursor layer
-#define FUNCTION          10  // TekBoArt Function layer
+/* #define DEFAULT           0   // Glove80 default layer */
+#define BASE_Standard     1   // TekBoArt Base Standard layer
+#define TYPING            2   // TekBoArt Typing layer
+#define GAMING            3   // TekBoArt Gaming layer
+#define SYMBOL            4   // TekBoArt Symbol layer
+#define NUMBER            5   // TekBoArt Number layer
+#define CURSOR            6   // TekBoArt Cursor layer
+#define LOWER             7   // Glove80 lower layer
+#define MAGIC             8   // Glove80 magic layer
+#define FUNCTION          9  // TekBoArt Function layer
 
 / {
     behaviors {
@@ -56,9 +58,19 @@
         bt_2: bt_profile_macro_2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
+            /';'bindings
                 = <&out OUT_BLE>,
-                  <&bt BT_SEL 2>;
+                    [
+
+
+
+
+
+
+
+                                                             
+                           
+                    ]   <&bt BT_SEL 2>;
         };
 
         bt_3: bt_profile_macro_3 {
@@ -73,46 +85,24 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  F1   |  F2 |  F3 |  F4  |  F5  |                                                               |  F6   |  F7   |  F8  |   F9  |  F10 |
-            // |  =    |  1  |  2  |  3   |  4   |  5   |                                                 |  6   |   7   |   8   |  9   |   0   |   -  |
-            // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                                                 |  Y   |   U   |   I   |  O   |   P   |   \  |
-            // |  ESC  |  A  |  S  |  D   |  F   |  G   |                                                 |  H   |   J   |   K   |  L   |   ;   |   '  |
-            // |   `   |  Z  |  X  |  C   |  V   |  B   | LSHFT | LCTRL | LOWER | | LGUI  | RCTRL | RSHFT |  N   |   M   |   ,   |  .   |   /   | PGUP |
-            // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
-
-            bindings = <
-            &kp F1         &kp F2   &kp F3      &kp F4      &kp F5                                                                                         &kp F6  &kp F7      &kp F8      &kp F9      &kp F10
-            &kp EQUAL      &kp N1   &kp N2      &kp N3      &kp N4      &kp N5                                                                     &kp N6  &kp N7  &kp N8      &kp N9      &kp N0      &kp MINUS
-            &kp TAB        &kp Q    &kp W       &kp E       &kp R       &kp T                                                                      &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
-            &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
-            &kp GRAVE      &kp Z    &kp X       &kp C       &kp V       &kp B   &kp LSHFT   &kp LCTRL   &layer_td  &kp LGUI  &kp RCTRL &kp RSHFT   &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp PG_UP
-            &mo MAGIC      &kp HOME &kp END     &kp LEFT    &kp RIGHT           &kp BSPC    &kp DEL     &kp LALT   &kp RALT  &kp RET   &kp SPACE           &kp UP  &kp DOWN    &kp LBKT    &kp RBKT    &kp PG_DN
-            >;
-        };
-
-        lower_layer {
-            bindings = <
-            &kp C_BRI_DN      &kp C_BRI_UP        &kp C_PREV      &kp C_NEXT      &kp C_PP                                                                                                           &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
-            &trans            &none               &none           &none           &none           &kp HOME                                                                              &kp LPAR     &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
-            &trans            &none               &none           &kp UP          &none           &kp END                                                                               &kp RPAR     &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp SLCK
-            &trans            &none               &kp LEFT        &kp DOWN        &kp RIGHT       &kp PG_UP                                                                             &kp PRCNT    &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &none
-            &trans            &kp K_CMENU         &none           &kp F11         &kp F12         &kp PG_DN       &trans      &trans      &to DEFAULT &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
-            &trans            &kp CAPS            &kp INS         &kp F11         &kp F12                         &trans      &trans      &trans      &trans      &trans      &trans                 &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
-            >;
-        };
-
-        magic_layer {
-            bindings = <
-            &bt BT_CLR        &none               &none           &none           &none                                                                                                           &none      &none      &none      &none      &none
-            &none             &none               &none           &none           &none           &none                                                                                &none      &none      &none      &none      &none      &none
-            &none             &rgb_ug RGB_SPI     &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                                                      &none      &none      &none      &none      &none      &none
-            &bootloader       &rgb_ug RGB_SPD     &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                      &none      &none      &none      &none      &none      &bootloader
-            &sys_reset        &none               &none           &none           &none           &none           &bt_2     &bt_3     &none            &none     &none     &none       &none      &none      &none      &none      &none      &sys_reset
-            &none             &none               &none           &none           &none                           &bt_0     &bt_1     &out OUT_USB     &none     &none     &none                  &none      &none      &none      &none      &none
-            >;
-        };
+        /* default_layer { */
+        /*     // --------------------------------------------------------------------------------------------------------------------------------- */
+        /*     // |  F1   |  F2 |  F3 |  F4  |  F5  |                                                               |  F6   |  F7   |  F8  |   F9  |  F10 | */
+        /*     // |  =    |  1  |  2  |  3   |  4   |  5   |                                                 |  6   |   7   |   8   |  9   |   0   |   -  | */
+        /*     // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                                                 |  Y   |   U   |   I   |  O   |   P   |   \  | */
+        /*     // |  ESC  |  A  |  S  |  D   |  F   |  G   |                                                 |  H   |   J   |   K   |  L   |   ;   |   '  | */
+        /*     // |   `   |  Z  |  X  |  C   |  V   |  B   | LSHFT | LCTRL | LOWER | | LGUI  | RCTRL | RSHFT |  N   |   M   |   ,   |  .   |   /   | PGUP | */
+        /*     // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN | */
+        /*  */
+        /*     bindings = < */
+        /*     &kp F1         &kp F2   &kp F3      &kp F4      &kp F5                                                                                         &kp F6  &kp F7      &kp F8      &kp F9      &kp F10 */
+        /*     &kp EQUAL      &kp N1   &kp N2      &kp N3      &kp N4      &kp N5                                                                     &kp N6  &kp N7  &kp N8      &kp N9      &kp N0      &kp MINUS */
+        /*     &kp TAB        &kp Q    &kp W       &kp E       &kp R       &kp T                                                                      &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH */
+        /*     &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT */
+        /*     &kp GRAVE      &kp Z    &kp X       &kp C       &kp V       &kp B   &kp LSHFT   &kp LCTRL   &layer_td  &kp LGUI  &kp RCTRL &kp RSHFT   &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp PG_UP */
+        /*     &mo MAGIC      &kp HOME &kp END     &kp LEFT    &kp RIGHT           &kp BSPC    &kp DEL     &kp LALT   &kp RALT  &kp RET   &kp SPACE           &kp UP  &kp DOWN    &kp LBKT    &kp RBKT    &kp PG_DN */
+        /*     >; */
+        /* }; */
 
         base_qwerty {
             bindings = <
@@ -122,6 +112,17 @@
             &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                                                              &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
             &sk LSHFT      &kp Z    &kp X       &kp C       &kp V       &kp B   &none              &none               &none      &none             &none               &none              &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &sk RSHFT
             &mo MAGIC      &none    &none       &none       &none               &lt CURSOR BSPC    &lt NUMBER SPACE    &kp TAB    &kp ESC           &lt SYMBOL DEL      &lt FUNCTION RET
+            >;
+        };
+
+        base_stadard {
+            bindings = <
+            &kp ESC        &kp F1    &kp F2      &kp F3      &kp F4                                                                                         &kp F7  &kp F8      &kp F9      &kp F10     &kp F11
+            &kp GRAVE      &kp N1    &kp N2      &kp N3      &kp N4      &kp N5                                                                     &kp N6  &kp N7  &kp N8      &kp N9      &kp N0      &kp F12
+            &kp TAB        &kp Q     &kp W       &kp E       &kp R       &kp T                                                                      &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
+            &kp CAPS       &kp A     &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
+            &kp LSHIFT     &kp Z     &kp X       &kp C       &kp V       &kp B   &kp DEL     &kp HOME   &kp PGUP  &kp RET   &kp UP    &kp BSPC      &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
+            &mo MAGIC      &kp LCTRL &kp LALT    &kp LGUI    &kp F5              &kp SPACE   &kp END    &kp PGDN  &kp LEFT  &kp DOWN  &kp RIGHT             &kp F6  &kp LBKT    &kp RBKT    &kp MINUS   &kp EQUAL
             >;
         };
 
@@ -136,16 +137,6 @@
             >;
         };
 
-        base_enthium {
-            bindings = <
-            &none          &none    &none       &none       &none                                                                                          &none   &none       &none       &none       &none
-            &none          &none    &none       &none       &none       &none                                                                      &none   &none   &none       &none       &none       &none
-            &kp TAB        &kp Q    &kp W       &kp E       &kp R       &kp T                                                                      &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
-            &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
-            &sk LSHFT      &kp Z    &kp X       &kp C       &kp V       &kp B   &none       &none       &none      &none     &none     &none       &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &sk RSHFT
-            &mo MAGIC      &none    &none       &none       &none               &kp BSPC    &kp DEL     &kp LALT   &kp RALT  &kp RET   &kp SPACE           &none   &none       &none       &none       &none
-            >;
-        };
 
         gaming {
             bindings = <
@@ -188,6 +179,28 @@
             &trans         &kp LGUI  &kp LALT    &kp LCTRL   &kp LSHFT   &none                                                                     &none      &kp LEFT   &kp DOWN    &kp RIGHT      &none      &none
             &trans         &kp LC(Z) &kp LC(X)   &kp LC(C)   &kp LC(V)   &none    &none       &none       &none      &none     &none     &none     &none      &none      &kp PG_DN   &kp PG_UP      &none      &kp LC(L)
             &mo MAGIC      &none     &none       &none       &none                &trans      &trans      &trans     &trans    &trans    &trans               &none      &none       &none          &none      &none
+            >;
+        };
+
+        lower_layer {
+            bindings = <
+            &kp C_BRI_DN      &kp C_BRI_UP        &kp C_PREV      &kp C_NEXT      &kp C_PP                                                                                                           &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
+            &trans            &none               &none           &none           &none           &kp HOME                                                                              &kp LPAR     &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
+            &trans            &none               &none           &kp UP          &none           &kp END                                                                               &kp RPAR     &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp SLCK
+            &trans            &none               &kp LEFT        &kp DOWN        &kp RIGHT       &kp PG_UP                                                                             &kp PRCNT    &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &none
+            &trans            &kp K_CMENU         &none           &kp F11         &kp F12         &kp PG_DN       &trans      &trans      &to DEFAULT &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
+            &trans            &kp CAPS            &kp INS         &kp F11         &kp F12                         &trans      &trans      &trans      &trans      &trans      &trans                 &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
+            >;
+        };
+
+        magic_layer {
+            bindings = <
+            &bt BT_CLR        &none               &none           &none           &none                                                                                                           &none      &none      &none      &none      &none
+            &none             &none               &none           &none           &none           &none                                                                                &none      &none      &none      &none      &none      &none
+            &none             &rgb_ug RGB_SPI     &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                                                      &none      &none      &none      &none      &none      &none
+            &bootloader       &rgb_ug RGB_SPD     &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                      &none      &none      &none      &none      &none      &bootloader
+            &sys_reset        &none               &none           &none           &none           &none           &bt_2     &bt_3     &none            &none     &none     &none       &none      &none      &none      &none      &none      &sys_reset
+            &none             &none               &none           &none           &none                           &bt_0     &bt_1     &out OUT_USB     &none     &none     &none                  &none      &none      &none      &none      &none
             >;
         };
 
