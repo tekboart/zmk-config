@@ -16,13 +16,13 @@
 /* #define DEFAULT           0 */
 #define LOWER             1
 #define MAGIC             2
-#define TYPING            4
-#define BASE_ENTHIUM      5
-#define GAMING            6
-#define SYMBOL            7
-#define NUMBER            8
-#define CURSOR            9
-#define FUNCTION          10
+#define TYPING            3
+#define BASE_ENTHIUM      4
+#define GAMING            5
+#define SYMBOL            6
+#define NUMBER            7
+#define CURSOR            8
+#define FUNCTION          9
 
 / {
     behaviors {
