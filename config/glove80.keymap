@@ -105,14 +105,16 @@
             >;
         };
 
-        base_stadard {
+        // TODO: Add a MAC Keymap for QWERTY and Standard layouts, separately.
+
+        base_standard {
             bindings = <
             &kp ESC        &kp F1    &kp F2      &kp F3      &kp F4                                                                                         &kp F7  &kp F8      &kp F9      &kp F10     &kp F11
             &kp GRAVE      &kp N1    &kp N2      &kp N3      &kp N4      &kp N5                                                                     &kp N6  &kp N7  &kp N8      &kp N9      &kp N0      &kp F12
             &kp TAB        &kp Q     &kp W       &kp E       &kp R       &kp T                                                                      &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
             &kp CAPS       &kp A     &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
             &kp LSHIFT     &kp Z     &kp X       &kp C       &kp V       &kp B   &kp DEL     &kp HOME   &kp PGUP  &kp RET   &kp UP    &kp BSPC      &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
-            &mo MAGIC      &kp LCTRL &kp LALT    &kp LGUI    &kp F5              &kp SPACE   &kp END    &kp PGDN  &kp LEFT  &kp DOWN  &kp RIGHT             &kp F6  &kp LBKT    &kp RBKT    &kp MINUS   &kp EQUAL
+            &mo FUNCTION   &kp LCTRL &kp LALT    &kp LGUI    &kp F5              &kp SPACE   &kp END    &kp PGDN  &kp LEFT  &kp DOWN  &kp RIGHT             &kp F6  &kp LBKT    &kp RBKT    &kp MINUS   &kp EQUAL
             >;
         };
 
@@ -145,8 +147,8 @@
             &none          &none     &none      &none       &none       &none                                                                      &none     &none      &none       &none       &none       &none
             &kp EXCL       &kp LBKT  &kp LBRC   &kp RBRC    &kp RBKT    &kp AMPS                                                                   &kp LPAR  &kp BSPC   &kp SPACE   &kp RET     &kp DEL     &kp TAB
             &kp HASH       &kp CARET &kp EQUAL  &kp UNDER   &kp DLLR    &kp ASTRK                                                                  &kp GRAVE &kp RSHFT  &kp RCTRL   &kp RALT    &kp RGUI    &none
-            &kp TILDE      &kp LPAR  &kp PLUS   &kp MINUS   &kp RPAR    &kp PIPE  &none       &none       &none      &none     &none     &none     &kp RPAR  &kp BSPC   &kp TAB     &kp SPACE   &kp RET     &kp RSHFT
-            &none          &none     &none      &none       &none                 &kp PERCENT &kp AMPS    &none      &none     &none     &none               &none      &none       &none       &none       &none
+            &kp TILDE      &kp LPAR  &kp PLUS   &kp MINUS   &kp RPAR    &kp PIPE  &none         &none     &none      &none     &none     &none     &kp RPAR  &kp BSPC   &kp TAB     &kp SPACE   &kp RET     &kp RSHFT
+            &none          &none     &none      &none       &none                 &kp PERCENT   &kp AT    &none      &none     &none     &none               &none      &none       &none       &none       &none
             >;
         };
 
@@ -174,12 +176,12 @@
 
         lower_layer {
             bindings = <
-            &kp C_BRI_DN      &kp C_BRI_UP        &kp C_PREV      &kp C_NEXT      &kp C_PP                                                                                                           &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
-            &trans            &none               &none           &none           &none           &kp HOME                                                                              &kp LPAR     &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
-            &trans            &none               &none           &kp UP          &none           &kp END                                                                               &kp RPAR     &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp SLCK
-            &trans            &none               &kp LEFT        &kp DOWN        &kp RIGHT       &kp PG_UP                                                                             &kp PRCNT    &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &none
-            &trans            &kp K_CMENU         &none           &kp F11         &kp F12         &kp PG_DN       &trans      &trans      &to BASE_Standard &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
-            &trans            &kp CAPS            &kp INS         &kp F11         &kp F12                         &trans      &trans      &trans      &trans      &trans      &trans                 &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
+            &kp C_BRI_DN      &kp C_BRI_UP  &kp C_PREV      &kp C_NEXT  &kp C_PP                                                                                                                 &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
+            &trans            &none         &none           &none       &none           &kp HOME                                                                                    &kp LPAR     &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
+            &trans            &none         &none           &kp UP      &none           &kp END                                                                                     &kp RPAR     &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp SLCK
+            &trans            &none         &kp LEFT        &kp DOWN    &kp RIGHT       &kp PG_UP                                                                                   &kp PRCNT    &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &none
+            &trans            &kp K_CMENU   &none           &kp F11     &kp F12         &kp PG_DN       &trans      &trans      &to BASE_Standard &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
+            &trans            &kp CAPS      &kp INS         &kp F11     &kp F12                         &trans      &trans      &trans            &trans      &trans      &trans                 &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
             >;
         };
 
@@ -196,12 +198,12 @@
 
         function {
             bindings = <
-            &none          &none      &none      &none       &none                                                                                             &none      &none       &none       &none      &none
-            &none          &none      &none      &none       &none       &none                                                                      &none      &none      &none       &none       &none      &none
-            &trans         &none      &none      &none       &none       &none                                                                      &kp LPAR   &kp F7     &kp F8      &kp F9      &kp F10    &kp F13
-            &kp CAPS       &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none                                                                      &kp KP_DOT &kp F4     &kp F5      &kp F6      &kp F11    &kp F14
-            &trans         &kp C_PREV &kp C_PP   &kp C_NEXT  &none       &none     &none       &none       &none      &none     &none     &none     &kp RPAR   &kp F1     &kp F2      &kp F3      &kp F12    &kp F15
-            &none          &none      &none      &none       &none                 &trans      &trans      &trans     &trans    &trans    &kp N0               &none      &none       &none       &none      &none
+            &trans              &trans      &trans      &trans       &trans                                                                                              &trans      &trans       &trans       &trans      &trans
+            &trans              &trans      &trans      &trans       &trans       &trans                                                                      &trans     &trans      &trans       &trans       &trans      &trans
+            &tog BASE_Standard  &trans      &trans      &trans       &trans       &trans                                                                      &kp LPAR   &kp F7      &kp F8       &kp F9       &kp F10     &kp F13
+            &kp CAPS            &kp LGUI    &kp LALT    &kp LCTRL    &kp LSHFT    &trans                                                                      &kp KP_DOT &kp F4      &kp F5       &kp F6       &kp F11     &kp F14
+            &tog TYPING         &kp C_PREV  &kp C_PP    &kp C_NEXT   &trans       &trans     &trans      &trans      &trans     &trans    &trans    &trans    &kp RPAR   &kp F1      &kp F2       &kp F3       &kp F12     &kp F15
+            &trans              &trans      &trans      &trans       &trans                  &trans      &trans      &trans     &trans    &trans    &trans               &trans      &trans       &trans       &trans      &trans
             >;
         };
 
