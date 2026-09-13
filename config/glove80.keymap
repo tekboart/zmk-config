@@ -11,12 +11,19 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
 
-// layers
+// ###############################################################
+// Define Aliases
+// ###############################################################
+
+// ---------------------------------------------------------------
+// Define Aliases: Layers
+// ---------------------------------------------------------------
 // NOTE: These are just aliases for layer numbers. The actual layer numbers are determined by the order of the layers in the keymap.
 // If you change the order of the layers, you must also change the layer numbers below.
-#define BASE_QWERTY       0   // TekBoArt Base QWERTY layer
+
+#define QWERTY_3R         0   // TekBoArt Base QWERTY layer (3-row)
 /* #define DEFAULT           0   // Glove80 default layer */
-#define BASE_Standard     1   // TekBoArt Base Standard layer
+#define QWERTY_6R         1   // TekBoArt Base Standard layer
 #define TYPING            2   // TekBoArt Typing layer
 #define GAMING            3   // TekBoArt Gaming layer
 #define SYMBOL            4   // TekBoArt Symbol layer
@@ -25,6 +32,45 @@
 #define LOWER             7   // Glove80 lower layer
 #define MAGIC             8   // Glove80 magic layer
 #define FUNCTION          9  // TekBoArt Function layer
+
+// ---------------------------------------------------------------
+// Define Aliases: Layer Switch/Activtion
+// ---------------------------------------------------------------
+// (Base) QWERTY Layer (3-row)
+#define TG_BASE  &tog QWERTY_3R
+#define TO_BASE  &to QWERTY_3R
+
+// (Base) QWERTY Layer (6-row)
+#define TG_STD   &tog QWERTY_6R
+#define TO_STD   &to QWERTY_6R
+
+// Typing Layer
+#define TG_TYP   &tog TYPING
+#define TO_TYP   &to TYPING
+
+// Gaming Layer
+#define TG_GAME  &tog GAMING
+#define TO_GAME  &to GAMING
+
+// Number Layer
+#define LT_NUM   &lt NUMBER SPC
+#define MO_NUM   &mo NUMBER
+#define TG_NUM   &tog NUMBER
+
+// Symbol Layer
+#define LT_SYM   &lt SYMBOL DEL
+#define MO_SYM   &mo SYMBOL
+#define TG_SYM   &tog SYMBOL
+
+// Cursor Layer
+#define LT_CSR   &lt CURSOR BSPC
+#define MO_CSR   &mo CURSOR
+#define TG_CSR   &tog CURSOR
+
+// Function Layer
+#define LT_FN    &lt FUNCTION ENTER
+#define MO_FN    &mo FUNCTION
+#define TG_FN    &tog FUNCTION
 
 / {
     behaviors {
@@ -94,27 +140,27 @@
         /*     >; */
         /* }; */
 
-        base_qwerty {
+        qwerty_3row {
             bindings = <
             &none          &none    &none       &none       &none                                                                                                                                  &none   &none       &none       &none       &none
             &none          &none    &none       &none       &none       &none                                                                                                              &none   &none   &none       &none       &none       &none
             &kp TAB        &kp Q    &kp W       &kp E       &kp R       &kp T                                                                                                              &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
             &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                                                              &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
-            &sk LSHFT      &kp Z    &kp X       &kp C       &kp V       &kp B   &none              &none               &none      &none             &none               &none              &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &sk RSHFT
-            &mo MAGIC      &none    &none       &none       &none               &lt CURSOR BSPC    &lt NUMBER SPACE    &kp TAB    &kp ESC           &lt SYMBOL DEL      &lt FUNCTION RET
+            &sk LSHFT      &kp Z    &kp X       &kp C       &kp V       &kp B   &none      &none               &none      &none             &none               &none              &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &sk RSHFT
+            &mo MAGIC      &none    &none       &none       &none               &LT_CSR    &lt NUMBER SPACE    &kp TAB    &kp ESC           &lt SYMBOL DEL      &lt FUNCTION RET
             >;
         };
 
         // TODO: Add a MAC Keymap for QWERTY and Standard layouts, separately.
 
-        base_standard {
+        qwerty_6row {
             bindings = <
-            &kp ESC        &kp F1    &kp F2      &kp F3      &kp F4                                                                                         &kp F7  &kp F8      &kp F9      &kp F10     &kp F11
-            &kp GRAVE      &kp N1    &kp N2      &kp N3      &kp N4      &kp N5                                                                     &kp N6  &kp N7  &kp N8      &kp N9      &kp N0      &kp F12
-            &kp TAB        &kp Q     &kp W       &kp E       &kp R       &kp T                                                                      &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
-            &kp CAPS       &kp A     &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
-            &kp LSHIFT     &kp Z     &kp X       &kp C       &kp V       &kp B   &kp DEL     &kp HOME   &kp PGUP  &kp RET   &kp UP    &kp BSPC      &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
-            &mo FUNCTION   &kp LCTRL &kp LALT    &kp LGUI    &kp F5              &kp SPACE   &kp END    &kp PGDN  &kp LEFT  &kp DOWN  &kp RIGHT             &kp F6  &kp LBKT    &kp RBKT    &kp MINUS   &kp EQUAL
+            &kp ESC        &kp F1    &kp F2      &kp F3      &kp F4                                                                                               &kp F7  &kp F8      &kp F9      &kp F10     &kp F11
+            &kp GRAVE      &kp N1    &kp N2      &kp N3      &kp N4      &kp N5                                                                           &kp N6  &kp N7  &kp N8      &kp N9      &kp N0      &kp F12
+            &kp TAB        &kp Q     &kp W       &kp E       &kp R       &kp T                                                                            &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
+            &kp CAPS       &kp A     &kp S       &kp D       &kp F       &kp G                                                                            &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
+            &kp LSHIFT     &kp Z     &kp X       &kp C       &kp V       &kp B   &kp DEL     &kp HOME   &kp PGUP  &kp RET   &kp UP    &kp BSPC            &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
+            &mo FUNCTION   &kp LCTRL &kp LALT    &kp LGUI    &kp F5              &kp SPACE   &kp END    &kp PGDN  &kp LEFT  &kp DOWN  &lt FUNCTION RIGHT          &kp F6  &kp LBKT    &kp RBKT    &kp MINUS   &kp EQUAL
             >;
         };
 
@@ -180,7 +226,7 @@
             &trans            &none         &none           &none       &none           &kp HOME                                                                                    &kp LPAR     &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
             &trans            &none         &none           &kp UP      &none           &kp END                                                                                     &kp RPAR     &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp SLCK
             &trans            &none         &kp LEFT        &kp DOWN    &kp RIGHT       &kp PG_UP                                                                                   &kp PRCNT    &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &none
-            &trans            &kp K_CMENU   &none           &kp F11     &kp F12         &kp PG_DN       &trans      &trans      &to BASE_Standard &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
+            &trans            &kp K_CMENU   &none           &kp F11     &kp F12         &kp PG_DN       &trans      &trans      &to QWERTY_6R     &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
             &trans            &kp CAPS      &kp INS         &kp F11     &kp F12                         &trans      &trans      &trans            &trans      &trans      &trans                 &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
             >;
         };
@@ -200,7 +246,7 @@
             bindings = <
             &trans              &trans      &trans      &trans       &trans                                                                                              &trans      &trans       &trans       &trans      &trans
             &trans              &trans      &trans      &trans       &trans       &trans                                                                      &trans     &trans      &trans       &trans       &trans      &trans
-            &tog BASE_Standard  &trans      &trans      &trans       &trans       &trans                                                                      &kp LPAR   &kp F7      &kp F8       &kp F9       &kp F10     &kp F13
+            &tog QWERTY_6R      &trans      &trans      &trans       &trans       &trans                                                                      &kp LPAR   &kp F7      &kp F8       &kp F9       &kp F10     &kp F13
             &kp CAPS            &kp LGUI    &kp LALT    &kp LCTRL    &kp LSHFT    &trans                                                                      &kp KP_DOT &kp F4      &kp F5       &kp F6       &kp F11     &kp F14
             &tog TYPING         &kp C_PREV  &kp C_PP    &kp C_NEXT   &trans       &trans     &trans      &trans      &trans     &trans    &trans    &trans    &kp RPAR   &kp F1      &kp F2       &kp F3       &kp F12     &kp F15
             &trans              &trans      &trans      &trans       &trans                  &trans      &trans      &trans     &trans    &trans    &trans               &trans      &trans       &trans       &trans      &trans
