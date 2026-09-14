@@ -10,7 +10,6 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/rgb_colors.h>
 
 // ###############################################################
 // Define Aliases
@@ -423,8 +422,6 @@
       #define GRN &ug GRN_RGB
       #define SPG &ug SPG_RGB
       #define CYN &ug CYN_RGB
-      #define AZU &ug AZU_RGB
-      #define TEA &ug TEA_RGB
       #define TUR &ug TUR_RGB
       #define BLU &ug BLU_RGB
       #define PUR &ug PUR_RGB
@@ -504,5 +501,62 @@
         };
       };
       // ==== PER-KEY-RGB <section ends> =====
+
+      #undef RED
+      #undef RED_RGB
+      #undef COR
+      #undef COR_RGB
+      #undef ORN
+      #undef ORN_RGB
+      #undef GDN
+      #undef GDN_RGB
+      #undef GOL
+      #undef GOL_RGB
+      #undef YLW
+      #undef YLW_RGB
+      #undef CHU
+      #undef CHU_RGB
+      #undef GRN
+      #undef GRN_RGB
+      #undef SPG
+      #undef SPG_RGB
+      #undef CYN
+      #undef CYN_RGB
+      #undef AZU
+      #undef AZU_RGB
+      #undef TEA
+      #undef TEA_RGB
+      #undef TUR
+      #undef TUR_RGB
+      #undef BLU
+      #undef BLU_RGB
+      #undef PUR
+      #undef PUR_RGB
+      #undef MAJ
+      #undef MAJ_RGB
+      #undef PNK
+      #undef PNK_RGB
+      #undef WHT
+      #undef WHT_RGB
+      #undef BLK
+      #undef BLK_RGB
+      #undef ___
+      #undef DUG
+      #undef DUG_RGB
+      #undef LAC
+      #undef LAC_RGB
+
+      #undef BSL
+      #undef BNL
+      #undef BCL
+
+      #undef SSL
+      #undef SNL
+      #undef SCL
+
+      #undef FST
+      #undef WRP
+      #undef SLO
+    #endif
 
 };
