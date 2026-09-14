@@ -474,7 +474,7 @@
           */
 
           // QWERTY_3R
-          #ifdef QWERTY_3R
+          /* #ifdef QWERTY_3R */
           qwerty_3row {
             bindings = <
               ___ ___ ___ ___ ___                                             ___ ___ ___ ___ ___
@@ -486,7 +486,7 @@
             >;
             layer-id = <QWERTY_3R>;
           };
-          #endif
+          /* #endif */
 
           // QWERTY_6R
           // TYPING
