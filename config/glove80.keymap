@@ -72,6 +72,64 @@
 #define MO_FN    &mo FUNCTION
 #define TG_FN    &tog FUNCTION
 
+// ------- Define Aliases: Mod-Tap Keys  -------
+#define MT_LSFT &mt LSHIFT LBKT
+#define MT_RSFT &mt RSHIFT RBKT
+#define MT_RALT &mt RALT TAB
+
+// ------- Define Aliases: Sticky Keys  -------
+// Sticky keys remain active until the next key is pressed.
+// They are useful for one-handed typing, e.g., first letter capital.
+// Sticky Mods (OSM)
+#define ST_LSFT &sk LSHIFT
+#define ST_RSFT &sk RSHIFT
+
+// ------- Define Aliases: Home Row Mods (HRMs) -------
+#define HRW_A    &hrm LGUI A
+#define HRW_S    &hrm LALT S
+#define HRW_D    &hrm LCTRL D
+#define HRW_F    &hrm LSHFT F
+#define HRW_G    &hrm
+#define HRW_H    &hrm
+#define HRW_J    &hrm RSHFT J
+#define HRW_K    &hrm RCTRL K
+#define HRW_L    &hrm RALT L
+#define HRW_SCLN &hrm RGUI SEMI
+
+// ------- Define Aliases: Symbols -------
+#define SM_EXCL   &kp  EXCL // !
+#define SM_ADS    &kp  AT // @
+#define SM_HASH   &kp  HASH // #
+#define SM_DLR    &kp  DLLR // $
+#define SM_PERC   &kp  PRCNT // %
+#define SM_CRET   &kp  CARET // ^
+#define SM_AMPS   &kp  AMPS // &
+#define SM_ASTR   &kp  ASTERISK // *
+#define SM_LPRN   &kp  LPAR // (
+#define SM_RPRN   &kp  RPAR // )
+#define SM_LBRC   &kp  LBKT // [
+#define SM_RBRC   &kp  RBKT // ]
+#define SM_LCBR   &kp  LBRC // {
+#define SM_RCBR   &kp  RBRC // }
+#define SM_TICK   &kp  GRAVE // `
+#define SM_TILD   &kp  TILDE // ~
+#define SM_COMM   &kp  COMMA // ,
+#define SM_LT     &kp  LT // <
+#define SM_DOT    &kp  DOT // .
+#define SM_GT     &kp  GT // >
+#define SM_SLSH   &kp  FSLH // /
+#define SM_QUES   &kp  QMARK // ?
+#define SM_BSLS   &kp  BSLH // \ Backslash
+#define SM_PIPE   &kp  PIPE // |
+#define SM_COLN   &kp  COLON // :
+#define SM_SCLN   &kp  SEMI // ;
+#define SM_DQT    &kp  DQT // "
+#define SM_QUOT   &kp  SQT // '
+#define SM_EQL    &kp  EQUAL // =
+#define SM_PLUS   &kp  PLUS // +
+#define SM_MINS   &kp  MINUS // -
+#define SM_UNDS   &kp  UNDER // _
+
 // ---------------------------------------------------------------
 // Define Aliases: OS specific actions
 // ---------------------------------------------------------------
@@ -148,7 +206,6 @@
 #define _FIND_NEXT  _C(G)
 #define _FIND_PREV  _C(LS(G))
 
-
 / {
     behaviors {
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
@@ -158,6 +215,50 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&mo LOWER>, <&to LOWER>;
+        };
+
+        //////////////////////////////////////////////////////////////////////////
+        //
+        // ZMK global overrides
+        //
+        //////////////////////////////////////////////////////////////////////////
+
+        //
+        // CapsWord - ported from Pascal Getreuer's extension for QMK
+        // - https://zmk.dev/docs/behaviors/caps-word
+        // - https://getreuer.info/posts/keyboards/caps-word/index.html
+        //
+        caps_word {
+          continue-list = <
+            UNDERSCORE MINUS
+            BACKSPACE DELETE
+            N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
+          >;
+        };
+
+        //////////////////////////////////////////////////////////////////////////
+        //
+        // QMK-style MT (Mod-Tap) keys
+        //
+        //////////////////////////////////////////////////////////////////////////
+        // Generic mod-tap:
+        // &mt MODIFIER KEY
+        mt: mt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        // Generic home-row mod:
+        // Same behavior, but with your preferred HRM settings.
+        hrm: hrm {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
         };
     };
 
@@ -198,6 +299,17 @@
     keymap {
         compatible = "zmk,keymap";
 
+        /* <layer_name> { */
+        /*     bindings = < */
+        /*     &none      &none    &none       &none       &none                                                                                                          &none      &none      &none      &none      &none */
+        /*     &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none */
+        /*     &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none */
+        /*     &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none */
+        /*     &none      &none    &none       &none       &none       &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none */
+        /*     &none      &none    &none       &none       &none                  &none      &none      &none      &none      &none      &none */
+        /*     >; */
+        /* }; */
+
         /* default_layer { */
         /*     // --------------------------------------------------------------------------------------------------------------------------------- */
         /*     // |  F1   |  F2 |  F3 |  F4  |  F5  |                                                               |  F6   |  F7   |  F8  |   F9  |  F10 | */
@@ -217,14 +329,37 @@
         /*     >; */
         /* }; */
 
+
         qwerty_3row {
             bindings = <
-            &none          &none    &none       &none       &none                                                                                                                                  &none   &none       &none       &none       &none
-            &none          &none    &none       &none       &none       &none                                                                                                              &none   &none   &none       &none       &none       &none
-            &kp TAB        &kp Q    &kp W       &kp E       &kp R       &kp T                                                                                                              &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
-            &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                                                              &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
+            &none          &none    &none       &none       &none                                                                                                                                  &none       &none       &none       &none       &none
+            &none          &none    &none       &none       &none       &none                                                                                                              &none   &none       &none       &none       &none       &none
+            &kp TAB        &kp Q    &kp W       &kp E       &kp R       &kp T                                                                                                              &kp Y   &kp U       &kp I       &kp O       &kp P       &kp BSLH
+            &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                                                              &kp H   &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
             &sk LSHFT      &kp Z    &kp X       &kp C       &kp V       &kp B   &none      &none               &none      &none             &none               &none              &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &sk RSHFT
             &mo MAGIC      &none    &none       &none       &none               LT_CSR     &lt NUMBER SPACE    &kp TAB    &kp ESC           &lt SYMBOL DEL      &lt FUNCTION RET
+            >;
+        };
+
+        lower {
+            bindings = <
+            &none      &none    &none       &none       &none                                                                                                          &none      &none      &none      &none      &none
+            &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none
+            &none      &kp N1   &kp N2      &kp N3      &kp N4      &kp N5                                                                                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &none
+            &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none
+            &none      &none    &none       &none       &none       &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
+            &none      &none    &none       &none       &none                  &none      &none      &none      &none      &none      &none
+            >;
+        };
+
+        lower_raise {
+            bindings = <
+            &none      &none    &none       &none       &none                                                                                                          &none      &none      &none      &none      &none
+            &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none
+            &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none
+            &none      &kp N1   &kp N2      &kp N3      &kp N4      &kp N5                                                                                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &none
+            &none      &none    &none       &none       &none       &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
+            &none      &none    &none       &none       &none                  &none      &none      &none      &none      &none      &none
             >;
         };
 
@@ -282,7 +417,7 @@
             &trans         &kp DEL   &kp RET    &kp SPACE   &kp BSPC    &kp KP_NLCK                                                                &kp LPAR   &kp N7     &kp N8      &kp N9      &kp COLON        &kp PRCNT
             &kp K_CALC     &kp LGUI  &kp LALT   &kp LCTRL   &kp LSHFT   &none                                                                      &kp KP_DOT &kp N4     &kp N5      &kp N6      &kp KP_MINUS     &kp KP_PLUS
             &trans         &kp LC(A) &none      &none       &none       &none     &none       &none       &none      &none     &none     &none     &kp RPAR   &kp N1     &kp N2      &kp N3      &kp KP_MULTIPLY  &kp KP_DIVIDE
-            &none          &none     &none      &none       &none                 &trans      &trans      &trans     &trans    &trans    &kp N0               &none      &none       &none       &none            &none
+            &none          &none     &none      &none       &none                 &trans      &trans      &trans     &trans    &kp N0    &kp KP_DOT           &none      &none       &none       &none            &none
             >;
         };
 
@@ -324,7 +459,7 @@
             &trans              &trans      &trans      &trans       &trans                                                                                              &trans      &trans       &trans       &trans      &trans
             &trans              &trans      &trans      &trans       &trans       &trans                                                                      &trans     &trans      &trans       &trans       &trans      &trans
             &tog QWERTY_6R      &trans      &trans      &trans       &trans       &trans                                                                      &kp LPAR   &kp F7      &kp F8       &kp F9       &kp F10     &kp F13
-            &kp CAPS            &kp LGUI    &kp LALT    &kp LCTRL    &kp LSHFT    &trans                                                                      &kp KP_DOT &kp F4      &kp F5       &kp F6       &kp F11     &kp F14
+            &caps_word          &kp LGUI    &kp LALT    &kp LCTRL    &kp LSHFT    &trans                                                                      &kp KP_DOT &kp F4      &kp F5       &kp F6       &kp F11     &kp F14
             &tog TYPING         &kp C_PREV  &kp C_PP    &kp C_NEXT   &trans       &trans     &trans      &trans      &trans     &trans    &trans    &trans    &kp RPAR   &kp F1      &kp F2       &kp F3       &kp F12     &kp F15
             &trans              &trans      &trans      &trans       &trans                  &trans      &trans      &trans     &trans    &trans    &trans               &trans      &trans       &trans       &trans      &trans
             >;
