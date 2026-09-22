@@ -403,9 +403,9 @@
             bindings = <
             &none          &none     &none      &none       &none                                                                                            &none      &none       &none       &none       &none
             &none          &none     &none      &none       &none       &none                                                                      &none     &none      &none       &none       &none       &none
-            &kp EXCL       &kp LBKT  &kp LBRC   &kp RBRC    &kp RBKT    &kp AMPS                                                                   &kp LPAR  &kp BSPC   &kp SPACE   &kp RET     &kp DEL     &kp TAB
-            &kp HASH       &kp CARET &kp EQUAL  &kp UNDER   &kp DLLR    &kp ASTRK                                                                  &kp GRAVE &kp RSHFT  &kp RCTRL   &kp RALT    &kp RGUI    &none
-            &kp TILDE      &kp LPAR  &kp PLUS   &kp MINUS   &kp RPAR    &kp PIPE  &none         &none     &none      &none     &none     &none     &kp RPAR  &kp BSPC   &kp TAB     &kp SPACE   &kp RET     &kp RSHFT
+            SM_EXCL        &kp LBKT  &kp LBRC   &kp RBRC    &kp RBKT    &kp AMPS                                                                   &kp LPAR  &kp BSPC   &kp SPACE   &kp RET     &kp DEL     &kp TAB
+            SM_HASH        &kp CARET &kp EQUAL  &kp UNDER   &kp DLLR    &kp ASTRK                                                                  &kp GRAVE &kp RSHFT  &kp RCTRL   &kp RALT    &kp RGUI    &none
+            SM_AMPS        &kp LPAR  &kp PLUS   &kp MINUS   &kp RPAR    &kp PIPE  &none         &none     &none      &none     &none     &none     &kp RPAR  &kp BSPC   &kp TAB     &kp SPACE   &kp RET     &kp RSHFT
             &none          &none     &none      &none       &none                 &kp PERCENT   &kp AT    &none      &none     &none     &none               &none      &none       &none       &none       &none
             >;
         };
