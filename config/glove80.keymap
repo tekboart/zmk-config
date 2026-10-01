@@ -329,6 +329,7 @@
         /*     >; */
         /* }; */
 
+            bindings = <
 
         qwerty_3row {
             bindings = <
