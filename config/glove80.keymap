@@ -21,56 +21,86 @@
 // NOTE: These are just aliases for layer numbers. The actual layer numbers are determined by the order of the layers in the keymap.
 // If you change the order of the layers, you must also change the layer numbers below.
 
-#define QWERTY_3R         0   // TekBoArt Base QWERTY layer (3-row)
 /* #define DEFAULT           0   // Glove80 default layer */
-#define QWERTY_6R         1   // TekBoArt Base Standard layer
-#define TYPING            2   // TekBoArt Typing layer
-#define GAMING            3   // TekBoArt Gaming layer
-#define SYMBOL            4   // TekBoArt Symbol layer
-#define NUMBER            5   // TekBoArt Number layer
-#define CURSOR            6   // TekBoArt Cursor layer
-#define LOWER             7   // Glove80 lower layer
-#define MAGIC             8   // Glove80 magic layer
-#define FUNCTION          9  // TekBoArt Function layer
+/* #define LOWER             1   // Glove80 lower layer */
+/* #define MAGIC             2   // Glove80 magic layer */
+#define _QWERTY_3R         0   // TekBoArt Base QWERTY layer (3-row)
+#define _QWERTY_3R_MAC     1   // TekBoArt Base QWERTY layer (3-row)
+#define _QWERTY_STD        2   // TekBoArt Base Standard layer
+#define _TYPING            3   // TekBoArt Typing layer
+#define _GAMING            4   // TekBoArt Gaming layer
+#define _SYMBOL            5   // TekBoArt Symbol layer
+#define _NAVIGATE          6   // TekBoArt Symbol layer
+#define _NUMBER            9   // TekBoArt Number layer
+#define _CURSOR            7   // TekBoArt Cursor layer
+#define _MOUSE             8   // TekBoArt Cursor layer
+#define _FUNCTION          10   // TekBoArt Function layer
+#define _MAGIC             11  // Tekboart magic layer
 
 // ---------------------------------------------------------------
 // Define Aliases: Layer Switch/Activtion
 // ---------------------------------------------------------------
 // (Base) QWERTY Layer (3-row)
-#define TG_BASE  &tog QWERTY_3R
-#define TO_BASE  &to QWERTY_3R
+#define TG_BASE  &tog _QWERTY_3R
+#define TO_BASE  &to  _QWERTY_3R
+
+// (Base) QWERTY Layer (3-row)
+#define TG_BSMC  &tog _QWERTY_3R_MAC
+#define TO_BSMC  &to  _QWERTY_3R_MAC
 
 // (Base) QWERTY Layer (6-row)
-#define TG_STD   &tog QWERTY_6R
-#define TO_STD   &to QWERTY_6R
+#define TG_STD   &tog _QWERTY_STD
+#define TO_STD   &to  _QWERTY_STD
 
 // Typing Layer
-#define TG_TYP   &tog TYPING
-#define TO_TYP   &to TYPING
+#define TG_TYP   &tog _TYPING
+#define TO_TYP   &to  _TYPING
 
 // Gaming Layer
-#define TG_GAME  &tog GAMING
-#define TO_GAME  &to GAMING
+#define TG_GAME  &tog _GAMING
+#define TO_GAME  &to  _GAMING
+
+// --- Thumb Layer ---
+// Symbol Layer
+#define LT_SYM   &lt  _SYMBOL RET
+#define MO_SYM   &mo  _SYMBOL
+#define TG_SYM   &tog _SYMBOL
+#define TO_SYM   &to  _SYMBOL
+
+// Navigation Layer
+#define LT_NAV   &lt  _NAVIGATE SPC
+#define MO_NAV   &mo  _NAVIGATE
+#define TG_NAV   &tog _NAVIGATE
+#define TO_NAV   &to  _NAVIGATE
 
 // Number Layer
-#define LT_NUM   &lt NUMBER SPC
-#define MO_NUM   &mo NUMBER
-#define TG_NUM   &tog NUMBER
-
-// Symbol Layer
-#define LT_SYM   &lt SYMBOL DEL
-#define MO_SYM   &mo SYMBOL
-#define TG_SYM   &tog SYMBOL
+#define LT_NUM   &lt  _NUMBER TAB
+#define MO_NUM   &mo  _NUMBER
+#define TG_NUM   &tog _NUMBER
+#define TO_NUM   &to  _NUMBER
 
 // Cursor Layer
-#define LT_CSR   &lt CURSOR BSPC
-#define MO_CSR   &mo CURSOR
-#define TG_CSR   &tog CURSOR
+#define LT_CSR   &lt  _CURSOR N1
+#define MO_CSR   &mo  _CURSOR
+#define TG_CSR   &tog _CURSOR
+#define TO_CSR   &to  _CURSOR
+
+// Mouse Layer
+#define LT_MSE   &lt  _MOUSE N1
+#define MO_MSE   &mo  _MOUSE
+#define TG_MSE   &tog _MOUSE
+#define TO_MSE   &to  _MOUSE
 
 // Function Layer
-#define LT_FN    &lt FUNCTION ENTER
-#define MO_FN    &mo FUNCTION
-#define TG_FN    &tog FUNCTION
+#define LT_FN   &lt  _FUNCTION ESC
+#define MO_FN   &mo  _FUNCTION
+#define TG_FN   &tog _FUNCTION
+#define TO_FN   &to  _FUNCTION
+
+// Magic Layer
+#define MO_MGC   &mo  _MAGIC
+#define TG_MGC   &tog _MAGIC
+#define TO_MGC   &to  _MAGIC
 
 // ------- Define Aliases: Mod-Tap Keys  -------
 #define MT_LSFT &mt LSHIFT LBKT
@@ -84,17 +114,32 @@
 #define ST_LSFT &sk LSHIFT
 #define ST_RSFT &sk RSHIFT
 
+// ------- Define Aliases: MEH keys  -------
+/* #define MEH LC(LA(LS(A))) */
+
 // ------- Define Aliases: Home Row Mods (HRMs) -------
-#define HRW_A    &hrm LGUI A
-#define HRW_S    &hrm LALT S
-#define HRW_D    &hrm LCTRL D
-#define HRW_F    &hrm LSHFT F
-#define HRW_G    &hrm
-#define HRW_H    &hrm
-#define HRW_J    &hrm RSHFT J
-#define HRW_K    &hrm RCTRL K
-#define HRW_L    &hrm RALT L
-#define HRW_SCLN &hrm RGUI SEMI
+// for Win/Linux
+#define HRW_A    &mt LGUI A
+#define HRW_S    &mt LALT S
+#define HRW_D    &mt LCTRL D
+#define HRW_F    &mt LSHFT F
+#define HRW_G    &mt MEH G
+#define HRW_H    &mt MEH H
+#define HRW_J    &mt RSHFT J
+#define HRW_K    &mt RCTRL K
+#define HRW_L    &mt RALT L
+#define HRW_SCLN &mt RGUI SEMI
+// for MAC
+#define HRM_A    &mt LCTRL A
+#define HRM_S    &mt LALT S
+#define HRM_D    &mt LGUID
+#define HRM_F    &mt LSHFT F
+#define HRM_G    &mt LC(LA(LS(A))) G
+#define HRM_H    &mt LC(LA(LS(A))) H
+#define HRM_J    &mt RSHFT J
+#define HRM_K    &mt RGUI K
+#define HRM_L    &mt RALT L
+#define HRM_SCLN &mt RCTRL SEMI
 
 // ------- Define Aliases: Symbols -------
 #define SM_EXCL   &kp  EXCL // !
@@ -129,6 +174,17 @@
 #define SM_PLUS   &kp  PLUS // +
 #define SM_MINS   &kp  MINUS // -
 #define SM_UNDS   &kp  UNDER // _
+
+// ------- Define Aliases: Media keys  -------
+#define MUTE C_MUTE
+#define VOLU C_VOL_UP
+#define VOLD C_VOL_DN
+#define MPLY C_PLAY_PAUSE
+#define MPRV C_PREV
+#define MNXT C_NEXT
+
+// ------- Define Aliases: Misc keys  -------
+#define CALC C_AL_CALC
 
 // ---------------------------------------------------------------
 // Define Aliases: OS specific actions
@@ -208,7 +264,7 @@
 
 / {
     behaviors {
-        // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
+        // For the "layer" key, it'd benice to be able to use it as either a shift or a toggle.
         // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
         layer_td: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
@@ -236,6 +292,8 @@
           >;
         };
 
+        // TODO: enable caps_word with both shifts pressed
+
         //////////////////////////////////////////////////////////////////////////
         //
         // QMK-style MT (Mod-Tap) keys
@@ -243,23 +301,31 @@
         //////////////////////////////////////////////////////////////////////////
         // Generic mod-tap:
         // &mt MODIFIER KEY
-        mt: mt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&kp>;
-        };
+        // FIXME: it seems zmk now natively supports mt
+        /* mt: mt { */
+        /*     compatible = "zmk,behavior-hold-tap"; */
+        /*     #binding-cells = <2>; */
+        /*     flavor = "balanced"; */
+        /*     tapping-term-ms = <200>; */
+        /*     bindings = <&kp>, <&kp>; */
+        /* }; */
 
         // Generic home-row mod:
         // Same behavior, but with your preferred HRM settings.
-        hrm: hrm {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&kp>;
-        };
+        /* hrm: hrm { */
+        /*     compatible = "zmk,behavior-hold-tap"; */
+        /*     #binding-cells = <2>; */
+        /*     flavor = "balanced"; */
+        /*     tapping-term-ms = <200>; */
+        /*     bindings = <&kp>, <&kp>; */
+        /* }; */
+
+        //////////////////////////////////////////////////////////////////////////
+        //
+        // Misc
+        //
+        //////////////////////////////////////////////////////////////////////////
+        // TODO: Pressing magic key twice, will light up the assigned keys in magic key.
     };
 
     macros {
@@ -312,67 +378,53 @@
 
         /* default_layer { */
         /*     // --------------------------------------------------------------------------------------------------------------------------------- */
-        /*     // |  F1   |  F2 |  F3 |  F4  |  F5  |                                                               |  F6   |  F7   |  F8  |   F9  |  F10 | */
-        /*     // |  =    |  1  |  2  |  3   |  4   |  5   |                                                 |  6   |   7   |   8   |  9   |   0   |   -  | */
-        /*     // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                                                 |  Y   |   U   |   I   |  O   |   P   |   \  | */
-        /*     // |  ESC  |  A  |  S  |  D   |  F   |  G   |                                                 |  H   |   J   |   K   |  L   |   ;   |   '  | */
-        /*     // |   `   |  Z  |  X  |  C   |  V   |  B   | LSHFT | LCTRL | LOWER | | LGUI  | RCTRL | RSHFT |  N   |   M   |   ,   |  .   |   /   | PGUP | */
-        /*     // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN | */
+        /*     // |  F1   |  F2  |  F3  |  F4  |  F5  |                                                               |  F6   |  F7   |  F8  |  F9  |  F10 | */
+        /*     // |  =    |   1  |   2  |   3  |   4  |  5   |                                                 |  6   |   7   |   8   |   9  |   0  |   -  | */
+        /*     // |  TAB  |   Q  |   W  |   E  |   R  |  T   |                                                 |  Y   |   U   |   I   |   O  |   P  |   \  | */
+        /*     // |  ESC  |   A  |   S  |   D  |   F  |  G   |                                                 |  H   |   J   |   K   |   L  |   ;  |   '  | */
+        /*     // |   `   |   Z  |   X  |   C  |   V  |  B   | LSHFT | LCTRL | LOWER | | LGUI  | RCTRL | RSHFT |  N   |   M   |   ,   |   .  |   /  | PGUP | */
+        /*     // | _MAGIC | HOME |  END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |   [  |   ]  | PGDN | */
         /*  */
         /*     bindings = < */
-        /*     &kp F1         &kp F2   &kp F3      &kp F4      &kp F5                                                                                         &kp F6  &kp F7      &kp F8      &kp F9      &kp F10 */
-        /*     &kp EQUAL      &kp N1   &kp N2      &kp N3      &kp N4      &kp N5                                                                     &kp N6  &kp N7  &kp N8      &kp N9      &kp N0      &kp MINUS */
-        /*     &kp TAB        &kp Q    &kp W       &kp E       &kp R       &kp T                                                                      &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH */
-        /*     &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT */
-        /*     &kp GRAVE      &kp Z    &kp X       &kp C       &kp V       &kp B   &kp LSHFT   &kp LCTRL   &layer_td  &kp LGUI  &kp RCTRL &kp RSHFT   &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp PG_UP */
-        /*     &mo MAGIC      &kp HOME &kp END     &kp LEFT    &kp RIGHT           &kp BSPC    &kp DEL     &kp LALT   &kp RALT  &kp RET   &kp SPACE           &kp UP  &kp DOWN    &kp LBKT    &kp RBKT    &kp PG_DN */
+            /* &trans    &trans    &trans    &trans    &trans                                                                                    &trans    &trans    &trans    &trans    &trans */
+            /* &trans    &trans    &trans    &trans    &trans    &trans                                                                &trans    &trans    &trans    &trans    &trans    &trans */
+            /* &trans    &trans    &trans    &trans    &trans    &trans                                                                &trans    &trans    &trans    &trans    &trans    &trans */
+            /* &trans    &trans    &trans    &trans    &trans    &trans                                                                &trans    &trans    &trans    &trans    &trans    &trans */
+            /* &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans */
+            /* &trans    &trans    &trans    &trans    &trans              &trans    &trans    &trans    &trans    &trans    &trans              &trans    &trans    &trans    &trans    &trans */
         /*     >; */
         /* }; */
 
-
-        qwerty_3row {
+        qwerty_3r {
             bindings = <
-            &none          &none    &none       &none       &none                                                                                                                                  &none       &none       &none       &none       &none
-            &none          &none    &none       &none       &none       &none                                                                                                              &none   &none       &none       &none       &none       &none
-            &kp TAB        &kp Q    &kp W       &kp E       &kp R       &kp T                                                                                                              &kp Y   &kp U       &kp I       &kp O       &kp P       &kp BSLH
-            &kp ESC        &kp A    &kp S       &kp D       &kp F       &kp G                                                                                                              &kp H   &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
-            &sk LSHFT      &kp Z    &kp X       &kp C       &kp V       &kp B   &none      &none               &none      &none             &none               &none              &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &sk RSHFT
-            &mo MAGIC      &none    &none       &none       &none               LT_CSR     &lt NUMBER SPACE    &kp TAB    &kp ESC           &lt SYMBOL DEL      &lt FUNCTION RET
+            &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &kp LBKT  &kp Q     &kp W     &kp E     &kp R     &kp T                                                                 &kp Y     &kp U     &kp I     &kp O     &kp P     &kp RBKT
+            &kp BSPC  HRW_A     HRW_S     HRW_D     HRW_F     HRW_G                                                                 HRW_H     HRW_J     HRW_K     HRW_L     HRW_SCLN  &kp SQT
+            ST_LSFT   &kp Z     &kp X     &kp C     &kp V     &kp B     MO_CSR    &none     &none     &none     &none     MO_MSE    &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  ST_RSFT
+            MO_MGC    &none     &none     &none     &none               LT_NUM    LT_NAV    &none     &none     LT_SYM    LT_FN               &none     &none     &none     &none     MO_MGC
             >;
         };
 
-        /* lower { */
-        /*     bindings = < */
-        /*     &none      &none    &none       &none       &none                                                                                                          &none      &none      &none      &none      &none */
-        /*     &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none */
-        /*     &none      &kp N1   &kp N2      &kp N3      &kp N4      &kp N5                                                                                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &none */
-        /*     &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none */
-        /*     &none      &none    &none       &none       &none       &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none */
-        /*     &none      &none    &none       &none       &none                  &none      &none      &none      &none      &none      &none */
-        /*     >; */
-        /* }; */
-
-        /* lower_raise { */
-        /*     bindings = < */
-        /*     &none      &none    &none       &none       &none                                                                                                          &none      &none      &none      &none      &none */
-        /*     &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none */
-        /*     &none      &none    &none       &none       &none       &none                                                                                   &none      &none      &none      &none      &none      &none */
-        /*     &none      &kp N1   &kp N2      &kp N3      &kp N4      &kp N5                                                                                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &none */
-        /*     &none      &none    &none       &none       &none       &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none      &none */
-        /*     &none      &none    &none       &none       &none                  &none      &none      &none      &none      &none      &none */
-        /*     >; */
-        /* }; */
-
-        // TODO: Add a MAC Keymap for QWERTY and Standard layouts, separately.
-
-        qwerty_6row {
+        qwerty_3r_mac{
             bindings = <
-            &kp ESC        &kp F1    &kp F2      &kp F3      &kp F4                                                                                               &kp F7  &kp F8      &kp F9      &kp F10     &kp F11
-            &kp GRAVE      &kp N1    &kp N2      &kp N3      &kp N4      &kp N5                                                                           &kp N6  &kp N7  &kp N8      &kp N9      &kp N0      &kp F12
-            &kp TAB        &kp Q     &kp W       &kp E       &kp R       &kp T                                                                            &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
-            &kp CAPS       &kp A     &kp S       &kp D       &kp F       &kp G                                                                            &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
-            &kp LSHIFT     &kp Z     &kp X       &kp C       &kp V       &kp B   &kp DEL     &kp HOME   &kp PGUP  &kp RET   &kp UP    &kp BSPC            &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
-            &mo FUNCTION   &kp LCTRL &kp LALT    &kp LGUI    &kp F5              &kp SPACE   &kp END    &kp PGDN  &kp LEFT  &kp DOWN  &lt FUNCTION RIGHT          &kp F6  &kp LBKT    &kp RBKT    &kp MINUS   &kp EQUAL
+            &trans    &trans    &trans    &trans    &trans                                                                                    &none     &none     &none     &none     &none
+            &trans    &trans    &trans    &trans    &trans    &none                                                                 &none     &none     &none     &none     &none     &none
+            &trans    &trans    &trans    &kp E     &kp R     &kp T                                                                 &kp Y     &kp U     &kp I     &kp O     &kp P     &kp RBKT
+            &trans    HRM_A     HRM_S     HRM_D     HRM_F     HRM_G                                                                 HRM_H     HRM_J     HRM_K     HRM_L     HRM_SCLN  &kp SQT
+            &trans    &trans    &trans    &kp C     &kp V     &kp B     &none     &none     &none     &none     &none     &none     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &sk RSHFT
+            &trans    &trans    &trans    &none     &none               LT_NUM    LT_NAV    LT_CSR    LT_MSE    LT_SYM    LT_FN               &none     &none     &none     &none     &none
+            >;
+        };
+
+        qwerty_std {
+            bindings = <
+            &kp ESC    &kp F1    &kp F2      &kp F3      &kp F4                                                                                               &kp F7  &kp F8      &kp F9      &kp F10     &kp F11
+            &kp GRAVE  &kp N1    &kp N2      &kp N3      &kp N4      &kp N5                                                                           &kp N6  &kp N7  &kp N8      &kp N9      &kp N0      &kp F12
+            &kp TAB    &kp Q     &kp W       &kp E       &kp R       &kp T                                                                            &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
+            &kp CAPS   &kp A     &kp S       &kp D       &kp F       &kp G                                                                            &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
+            &kp LSHIFT &kp Z     &kp X       &kp C       &kp V       &kp B   &kp DEL     &kp HOME   &kp PGUP  &kp RET   &kp UP    &kp BSPC            &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
+            &mo _MAGIC &kp LCTRL &kp LALT    &kp LGUI    &kp F5              &kp SPACE   &kp END    &kp PGDN  &kp LEFT  &kp DOWN  &lt _FUNCTION RIGHT          &kp F6  &kp LBKT    &kp RBKT    &kp MINUS   &kp EQUAL
             >;
         };
 
@@ -383,89 +435,129 @@
             &trans         &trans   &trans      &trans      &trans      &trans                                                                     &trans  &trans  &trans      &trans      &trans      &trans
             &trans         &kp A    &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &trans
             &trans         &trans   &trans      &trans      &trans      &trans  &trans      &trans       &trans      &trans     &trans     &trans  &trans  &trans   &trans     &trans      &trans      &trans
-            &mo MAGIC      &trans   &trans      &trans      &trans              &kp BSPC    &kp SPACE    &kp TAB     &kp ESC    &kp DEL    &kp RET         &trans   &trans     &trans      &trans      &trans
+            &mo _MAGIC     &trans   &trans      &trans      &trans              &kp BSPC    &kp SPACE    &kp TAB     &kp ESC    &kp DEL    &kp RET         &trans   &trans     &trans      &trans      &trans
             >;
         };
 
 
+        // TODO: Finalize gaming layer to match my QMK
         gaming {
             bindings = <
-            &none          &none    &none       &none       &none                                                                                          &none   &none       &none       &none       &none
-            &none          &none    &none       &none       &none       &none                                                                      &none   &none   &none       &none       &none       &none
-            &trans         &trans   &kp W       &trans      &trans      &trans                                                                     &trans  &trans   &kp UP     &trans      &trans      &trans
-            &trans         &kp A    &kp S       &kp D       &trans      &trans                                                                     &trans  &kp LEFT &kp DOWN   &kp RIGHT   &trans      &trans
-            &trans         &trans   &trans      &trans      &trans      &trans  &trans      &trans       &trans      &trans     &trans     &trans  &trans  &trans   &trans     &trans      &trans      &trans
-            &mo MAGIC      &trans   &trans      &trans      &trans              &kp BSPC    &kp SPACE    &kp TAB     &kp ESC    &kp DEL    &kp RET         &trans   &trans     &trans      &trans      &trans
+            &none     &none     &none     &none     &none                                                                                   &none    &none      &none       &none       &none
+            &none     &none     &none     &none     &none     &none                                                                 &none   &none    &none      &none       &none       &none
+            &trans    &trans    &kp W     &trans    &trans    &trans                                                                &trans  &trans   &kp UP     &trans      &trans      &trans
+            &trans    &kp A     &kp S     &kp D     &trans    &trans                                                                &trans  &kp LEFT &kp DOWN   &kp RIGHT   &trans      &trans
+            &trans    &trans    &trans    &trans    &trans    &trans    &kp TAB   &none     &none     &none     &none     &kp ESC   &trans  &trans   &trans     &trans      &trans      &trans
+            &trans    &trans    &trans    &trans    &trans              &kp BSPC  &kp SPACE &none     &none     &kp DEL   &kp RET   &trans  &trans   &trans     &trans      &trans
             >;
         };
 
+        // TODO: Add Macro for trip backticks MC_TICK
         symbol {
             bindings = <
-            &none          &none     &none      &none       &none                                                                                            &none      &none       &none       &none       &none
-            &none          &none     &none      &none       &none       &none                                                                      &none     &none      &none       &none       &none       &none
-            SM_EXCL        &kp LBKT  &kp LBRC   &kp RBRC    &kp RBKT    &kp AMPS                                                                   &kp LPAR  &kp BSPC   &kp SPACE   &kp RET     &kp DEL     &kp TAB
-            SM_HASH        &kp CARET &kp EQUAL  &kp UNDER   &kp DLLR    &kp ASTRK                                                                  &kp GRAVE &kp RSHFT  &kp RCTRL   &kp RALT    &kp RGUI    &none
-            SM_AMPS        &kp LPAR  &kp PLUS   &kp MINUS   &kp RPAR    &kp PIPE  &none         &none     &none      &none     &none     &none     &kp RPAR  &kp BSPC   &kp TAB     &kp SPACE   &kp RET     &kp RSHFT
-            &none          &none     &none      &none       &none                 &kp PERCENT   &kp AT    &none      &none     &none     &none               &none      &none       &none       &none       &none
+            &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            SM_EXCL   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
+            SM_HASH   SM_CRET   SM_EQL    SM_UNDS   SM_DLR    SM_ASTR                                                               &none     &kp RSHFT &kp RCTRL &kp RALT  &kp RGUI  &none
+            SM_AMPS   SM_LT     SM_PIPE   SM_MINS   SM_GT     SM_PLUS   &trans    &none     &none     &none     &none     &trans    &kp TAB   &kp SPC   &kp RET   &kp BSPC  &kp DEL   &none
+            &trans    &none     &none     &none     &none               SM_PERC   SM_ADS    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
 
+        // TODO: Add UNDO
+        // TODO: Add REDO
+        // TODO: Add CUT
+        // TODO: Add COPY
+        // TODO: Add PASTE
+        // TODO: add SEL_WRD
+        // TODO: add SEL_LNE
+        // TODO: add DEL_NORM
+        navigate {
+            bindings = <
+            &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &none     &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
+            &none     &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                 &kp HOME  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp END
+            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans    SM_LBRC   SM_LCBR   SM_LPRN   SM_RPRN   SM_RCBR   SM_RBRC
+            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     SM_BSLS   SM_TICK             &none     &none     &none     &none     &none
+            >;
+        };
+
+        // TODO: Add UNDO
+        // TODO: Add REDO
+        // TODO: Add CUT
+        // TODO: Add COPY
+        // TODO: Add PASTE
+        // TODO: add SEL_WRD
+        // TODO: add SEL_LNE
         number {
             bindings = <
-            &none          &none     &none      &none       &none                                                                                             &none      &none       &none       &none            &none
-            &none          &none     &none      &none       &none       &none                                                                      &none      &none      &none       &none       &none            &none
-            &trans         &kp DEL   &kp RET    &kp SPACE   &kp BSPC    &kp KP_NLCK                                                                &kp LPAR   &kp N7     &kp N8      &kp N9      &kp COLON        &kp PRCNT
-            &kp K_CALC     &kp LGUI  &kp LALT   &kp LCTRL   &kp LSHFT   &none                                                                      &kp KP_DOT &kp N4     &kp N5      &kp N6      &kp KP_MINUS     &kp KP_PLUS
-            &trans         &kp LC(A) &none      &none       &none       &none     &none       &none       &none      &none     &none     &none     &kp RPAR   &kp N1     &kp N2      &kp N3      &kp KP_MULTIPLY  &kp KP_DIVIDE
-            &none          &none     &none      &none       &none                 &trans      &trans      &trans     &trans    &kp N0    &kp KP_DOT           &none      &none       &none       &none            &none
+            &none     &none     &none     &none     &none                                                                                       &none     &none     &none     &none            &none
+            &none     &none     &none     &none     &none     &none                                                                  &none      &none     &none     &none     &none            &none
+            &none     &kp DEL   &kp BSPC  &kp RET   &kp SPC   &none                                                                  &kp KP_NUM &kp KP_N7 &kp KP_8  &kp KP_9  &kp COLON        &kp PRCNT
+            &kp CALC  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                  &kp LPAR   &kp KP_N4 &kp KP_5  &kp KP_6  &kp KP_MINUS     &kp KP_PLUS
+            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans     &kp RPAR   &kp KP_N1 &kp KP_2  &kp KP_3  &kp KP_MULTIPLY  &kp KP_DIVIDE
+            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &kp KP_N0 &kp KP_DOT            &none     &none     &none     &none            &none
             >;
         };
 
+        // TODO: Add UNDO
+        // TODO: Add REDO
+        // TODO: Add CUT
+        // TODO: Add COPY
+        // TODO: Add PASTE
+        // TODO: add SEL_WRD
+        // TODO: add SEL_LNE
         cursor {
             bindings = <
-            &none          &none     &none       &none       &none                                                                                            &none      &none       &none          &none      &none
-            &none          &none     &none       &none       &none       &none                                                                     &none      &none      &none       &none          &none      &none
-            &trans         &none     &none       &none       &none       &kp LC(A)                                                                 &none      &kp LC(Z)  &kp UP      &kp LC(LS(Z))  &kp ESC    &kp TAB
-            &trans         &kp LGUI  &kp LALT    &kp LCTRL   &kp LSHFT   &none                                                                     &none      &kp LEFT   &kp DOWN    &kp RIGHT      &none      &none
-            &trans         &kp LC(Z) &kp LC(X)   &kp LC(C)   &kp LC(V)   &none    &none       &none       &none      &none     &none     &none     &none      &none      &kp PG_DN   &kp PG_UP      &none      &kp LC(L)
-            &mo MAGIC      &none     &none       &none       &none                &trans      &trans      &trans     &trans    &trans    &trans               &none      &none       &none          &none      &none
+            &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans    &none     &none     &none     &none     &none     &none
+            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
 
-        lower_layer {
+        mouse {
             bindings = <
-            &kp C_BRI_DN      &kp C_BRI_UP  &kp C_PREV      &kp C_NEXT  &kp C_PP                                                                                                                 &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
-            &trans            &none         &none           &none       &none           &kp HOME                                                                                    &kp LPAR     &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
-            &trans            &none         &none           &kp UP      &none           &kp END                                                                                     &kp RPAR     &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp SLCK
-            &trans            &none         &kp LEFT        &kp DOWN    &kp RIGHT       &kp PG_UP                                                                                   &kp PRCNT    &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &none
-            &trans            &kp K_CMENU   &none           &kp F11     &kp F12         &kp PG_DN       &trans      &trans      &to QWERTY_6R     &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
-            &trans            &kp CAPS      &kp INS         &kp F11     &kp F12                         &trans      &trans      &trans            &trans      &trans      &trans                 &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
+            &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans    &none     &none     &none     &none     &none     &none
+            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
 
-        magic_layer {
-            bindings = <
-            &bt BT_CLR        &none               &none           &none           &none                                                                                                           &none      &none      &none      &none      &none
-            &none             &none               &none           &none           &none           &none                                                                                &none      &none      &none      &none      &none      &none
-            &none             &rgb_ug RGB_SPI     &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                                                      &none      &none      &none      &none      &none      &none
-            &bootloader       &rgb_ug RGB_SPD     &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                      &none      &none      &none      &none      &none      &bootloader
-            &sys_reset        &none               &none           &none           &none           &none           &bt_2     &bt_3     &none            &none     &none     &none       &none      &none      &none      &none      &none      &sys_reset
-            &none             &none               &none           &none           &none                           &bt_0     &bt_1     &out OUT_USB     &none     &none     &none                  &none      &none      &none      &none      &none
-            >;
-        };
-
+        // TODO: Add UR_GPT
+        // TODO: Add AP_TERM
+        // TODO: Add AP_CHRM
+        // TODO: Add AP_FFOX
         function {
             bindings = <
-            &trans              &trans      &trans      &trans       &trans                                                                                              &trans      &trans       &trans       &trans      &trans
-            &trans              &trans      &trans      &trans       &trans       &trans                                                                      &trans     &trans      &trans       &trans       &trans      &trans
-            &tog QWERTY_6R      &trans      &trans      &trans       &trans       &trans                                                                      &kp LPAR   &kp F7      &kp F8       &kp F9       &kp F10     &kp F13
-            &caps_word          &kp LGUI    &kp LALT    &kp LCTRL    &kp LSHFT    &trans                                                                      &kp KP_DOT &kp F4      &kp F5       &kp F6       &kp F11     &kp F14
-            &tog TYPING         &kp C_PREV  &kp C_PP    &kp C_NEXT   &trans       &trans     &trans      &trans      &trans     &trans    &trans    &trans    &kp RPAR   &kp F1      &kp F2       &kp F3       &kp F12     &kp F15
-            &trans              &trans      &trans      &trans       &trans                  &trans      &trans      &trans     &trans    &trans    &trans               &trans      &trans       &trans       &trans      &trans
+            &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &kp INS   &kp MUTE  &kp VOLD  &kp VOLU  &none     &none                                                                 &none     &kp F7    &kp F8    &kp F9    &kp F10   &kp F13
+            &kp CAPS  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                 &none     &kp F4    &kp F5    &kp F6    &kp F11   &kp F14
+            TG_TYP    &kp MPLY  &kp MPRV  &kp MNXT  &none     &none     &trans    &none     &none     &none     &none     &trans    &none     &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
+            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
+            >;
+        };
+
+        magic {
+            bindings = <
+            &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans    &none     &none     &none     &none     &none     &none
+            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
 
     };
+
     //////////////////////////////////////////////////////////////////////////////
     //
     // Per-key RGB indicators for layers & mods -- requires PR36 beta firmware:
@@ -608,8 +700,8 @@
           };
           */
 
-          // QWERTY_3R
-          /* #ifdef QWERTY_3R */
+          // _QWERTY_3R
+          /* #ifdef _QWERTY_3R */
           qwerty_3row {
             bindings = <
               ___ ___ ___ ___ ___                                             ___ ___ ___ ___ ___
@@ -619,19 +711,19 @@
               ___ ___ ___ ___ ___ ___     ___ ___ ___     ___ ___ ___     ___ ___ ___ ___ ___ ___
               ___ ___ ___ ___ ___         ___ ___ ___     ___ ___ ___         ___ ___ ___ ___ ___
             >;
-            layer-id = <QWERTY_3R>;
+            layer-id = <_QWERTY_3R>;
           };
           /* #endif */
 
-          // QWERTY_6R
-          // TYPING
-          // GAMING
-          // SYMBOL
-          // NUMBER
-          // CURSOR
+          // _QWERTY_STD
+          // _TYPING
+          // _GAMING
+          // _SYMBOL
+          // _NUMBER
+          // _CURSOR
           // LOWER
-          // MAGIC
-          // FUNCTION
+          // _MAGIC
+          // _FUNCTION
 
         };
       };
