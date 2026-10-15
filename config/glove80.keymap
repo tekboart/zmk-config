@@ -176,12 +176,12 @@
 #define SM_UNDS   &kp  UNDER // _
 
 // ------- Define Aliases: Media keys  -------
-#define MUTE C_MUTE
-#define VOLU C_VOL_UP
-#define VOLD C_VOL_DN
-#define MPLY C_PLAY_PAUSE
-#define MPRV C_PREV
-#define MNXT C_NEXT
+#define M_MUTE &kp C_MUTE
+#define M_VOLU &kp C_VOL_UP
+#define M_VOLD &kp C_VOL_DN
+#define M_MPLY &kp C_PLAY_PAUSE
+#define M_MPRV &kp C_PREV
+#define M_MNXT &kp C_NEXT
 
 // ------- Define Aliases: Misc keys  -------
 #define CALC C_AL_CALC
@@ -538,9 +538,9 @@
             bindings = <
             &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
-            &kp INS   &kp MUTE  &kp VOLD  &kp VOLU  &none     &none                                                                 &none     &kp F7    &kp F8    &kp F9    &kp F10   &kp F13
+            &kp INS   M_MUTE    M_VOLD    M_VOLU    &none     &none                                                                 &none     &kp F7    &kp F8    &kp F9    &kp F10   &kp F13
             &kp CAPS  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                 &none     &kp F4    &kp F5    &kp F6    &kp F11   &kp F14
-            TG_TYP    &kp MPLY  &kp MPRV  &kp MNXT  &none     &none     &trans    &none     &none     &none     &none     &trans    &none     &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
+            TG_TYP    M_MPLY    M_MPRV    M_MNXT    &none     &none     &trans    &none     &none     &none     &none     &trans    &none     &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
             &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
