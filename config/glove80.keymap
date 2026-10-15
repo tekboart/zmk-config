@@ -132,7 +132,7 @@
 // for MAC
 #define HRM_A    &mt LCTRL A
 #define HRM_S    &mt LALT S
-#define HRM_D    &mt LGUID
+#define HRM_D    &mt LGUI D
 #define HRM_F    &mt LSHFT F
 #define HRM_G    &kp G
 #define HRM_H    &kp H
