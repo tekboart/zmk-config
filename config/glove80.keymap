@@ -492,12 +492,12 @@
         // TODO: add SEL_LNE
         number {
             bindings = <
-            &none     &none     &none     &none     &none                                                                                       &none     &none     &none     &none            &none
-            &none     &none     &none     &none     &none     &none                                                                  &none      &none     &none     &none     &none            &none
-            &none     &kp DEL   &kp BSPC  &kp RET   &kp SPC   &none                                                                  &kp KP_NUM &kp KP_N7 &kp KP_8  &kp KP_9  &kp COLON        &kp PRCNT
-            &kp CALC  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                  &kp LPAR   &kp KP_N4 &kp KP_5  &kp KP_6  &kp KP_MINUS     &kp KP_PLUS
-            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans     &kp RPAR   &kp KP_N1 &kp KP_2  &kp KP_3  &kp KP_MULTIPLY  &kp KP_DIVIDE
-            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &kp KP_N0 &kp KP_DOT            &none     &none     &none     &none            &none
+            &none     &none     &none     &none     &none                                                                                           &none     &none     &none     &none            &none
+            &none     &none     &none     &none     &none     &none                                                                  &none          &none     &none     &none     &none            &none
+            &none     &kp DEL   &kp BSPC  &kp RET   &kp SPC   &none                                                                  &kp KP_NUMLOCK &kp KP_N7 &kp KP_8  &kp KP_9  &kp COLON        &kp PRCNT
+            &kp CALC  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                  &kp LPAR       &kp KP_N4 &kp KP_5  &kp KP_6  &kp KP_MINUS     &kp KP_PLUS
+            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans     &kp RPAR       &kp KP_N1 &kp KP_2  &kp KP_3  &kp KP_MULTIPLY  &kp KP_DIVIDE
+            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &kp KP_N0 &kp KP_DOT                &none     &none     &none     &none            &none
             >;
         };
 
