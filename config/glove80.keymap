@@ -266,12 +266,12 @@
     behaviors {
         // For the "layer" key, it'd benice to be able to use it as either a shift or a toggle.
         // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
-        layer_td: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo LOWER>, <&to LOWER>;
-        };
+        /* layer_td: tap_dance_0 { */
+        /*     compatible = "zmk,behavior-tap-dance"; */
+        /*     #binding-cells = <0>; */
+        /*     tapping-term-ms = <200>; */
+        /*     bindings = <&mo LOWER>, <&to LOWER>; */
+        /* }; */
 
         //////////////////////////////////////////////////////////////////////////
         //
