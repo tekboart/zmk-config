@@ -123,8 +123,8 @@
 #define HRW_S    &mt LALT S
 #define HRW_D    &mt LCTRL D
 #define HRW_F    &mt LSHFT F
-#define HRW_G    &mt MEH G
-#define HRW_H    &mt MEH H
+#define HRW_G    &mt LC(LA(LS))  G
+#define HRW_H    &mt LC(LA(LS))  H
 #define HRW_J    &mt RSHFT J
 #define HRW_K    &mt RCTRL K
 #define HRW_L    &mt RALT L
