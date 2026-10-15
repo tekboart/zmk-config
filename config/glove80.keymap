@@ -134,8 +134,8 @@
 #define HRM_S    &mt LALT S
 #define HRM_D    &mt LGUID
 #define HRM_F    &mt LSHFT F
-#define HRM_G    &mt LC(LA(LS(A))) G
-#define HRM_H    &mt LC(LA(LS(A))) H
+#define HRM_G    &mt LC(LA(LS)) G
+#define HRM_H    &mt LC(LA(LS)) H
 #define HRM_J    &mt RSHFT J
 #define HRM_K    &mt RGUI K
 #define HRM_L    &mt RALT L
