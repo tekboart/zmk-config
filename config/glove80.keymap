@@ -31,9 +31,9 @@
 #define _GAMING            4   // TekBoArt Gaming layer
 #define _SYMBOL            5   // TekBoArt Symbol layer
 #define _NAVIGATE          6   // TekBoArt Symbol layer
-#define _NUMBER            9   // TekBoArt Number layer
-#define _CURSOR            7   // TekBoArt Cursor layer
-#define _MOUSE             8   // TekBoArt Cursor layer
+#define _NUMBER            7   // TekBoArt Number layer
+#define _CURSOR            8   // TekBoArt Cursor layer
+#define _MOUSE             9   // TekBoArt Cursor layer
 #define _FUNCTION          10   // TekBoArt Function layer
 #define _MAGIC             11  // Tekboart magic layer
 
@@ -490,7 +490,6 @@
         // TODO: Add PASTE
         // TODO: add SEL_WRD
         // TODO: add SEL_LNE
-        // TODO: add Numlock (KP_NUM and KP_NUMLOCK resulted in error!)
         number {
             bindings = <
             &none     &none     &none     &none     &none                                                                                       &none     &none     &none     &none            &none
