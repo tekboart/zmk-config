@@ -401,8 +401,8 @@
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &kp LBKT  &kp Q     &kp W     &kp E     &kp R     &kp T                                                                 &kp Y     &kp U     &kp I     &kp O     &kp P     &kp RBKT
             &kp BSPC  HRW_A     HRW_S     HRW_D     HRW_F     HRW_G                                                                 HRW_H     HRW_J     HRW_K     HRW_L     HRW_SCLN  &kp SQT
-            ST_LSFT   &kp Z     &kp X     &kp C     &kp V     &kp B     MO_CSR    &none     &none     &none     &none     MO_MSE    &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  ST_RSFT
-            MO_MGC    &none     &none     &none     &none               LT_NUM    LT_NAV    &none     &none     LT_SYM    LT_FN               &none     &none     &none     &none     MO_MGC
+            ST_LSFT   &kp Z     &kp X     &kp C     &kp V     &kp B     LT_NUM    LT_NAV    &none     &none     LT_SYM    LT_FN     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  ST_RSFT
+            MO_MGC    &none     &none     &none     &none               MO_CSR    &none     &none     &none     &none     MO_MSE              &none     &none     &none     &none     MO_MGC
             >;
         };
 
@@ -412,8 +412,8 @@
             &trans    &trans    &trans    &trans    &trans    &none                                                                 &none     &none     &none     &none     &none     &none
             &trans    &trans    &trans    &kp E     &kp R     &kp T                                                                 &kp Y     &kp U     &kp I     &kp O     &kp P     &kp RBKT
             &trans    HRM_A     HRM_S     HRM_D     HRM_F     HRM_G                                                                 HRM_H     HRM_J     HRM_K     HRM_L     HRM_SCLN  &kp SQT
-            &trans    &trans    &trans    &kp C     &kp V     &kp B     &none     &none     &none     &none     &none     &none     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &sk RSHFT
-            &trans    &trans    &trans    &none     &none               LT_NUM    LT_NAV    LT_CSR    LT_MSE    LT_SYM    LT_FN               &none     &none     &none     &none     &none
+            &trans    &trans    &trans    &kp C     &kp V     &kp B     LT_NUM    LT_NAV    &none     &none     LT_SYM    LT_FN     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &sk RSHFT
+            &trans    &trans    &trans    &none     &none               MO_CSR    &none     &none     &none     &none     MO_MSE              &none     &none     &none     &none     &none
             >;
         };
 
@@ -424,18 +424,18 @@
             &kp TAB    &kp Q     &kp W       &kp E       &kp R       &kp T                                                                            &kp Y   &kp U   &kp I       &kp O       &kp P       &kp BSLH
             &kp CAPS   &kp A     &kp S       &kp D       &kp F       &kp G                                                                            &kp H   &kp J   &kp K       &kp L       &kp SEMI    &kp SQT
             &kp LSHIFT &kp Z     &kp X       &kp C       &kp V       &kp B   &kp DEL     &kp HOME   &kp PGUP  &kp RET   &kp UP    &kp BSPC            &kp N   &kp M   &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
-            &mo _MAGIC &kp LCTRL &kp LALT    &kp LGUI    &kp F5              &kp SPACE   &kp END    &kp PGDN  &kp LEFT  &kp DOWN  &lt _FUNCTION RIGHT          &kp F6  &kp LBKT    &kp RBKT    &kp MINUS   &kp EQUAL
+            &trans     &kp LCTRL &kp LALT    &kp LGUI    &kp F5              &kp SPACE   &kp END    &kp PGDN  &kp LEFT  &kp DOWN  &lt _FUNCTION RIGHT          &kp F6  &kp LBKT    &kp RBKT    &kp MINUS   &kp EQUAL
             >;
         };
 
         typing {
             bindings = <
-            &trans         &trans   &trans      &trans      &trans                                                                                         &trans  &trans      &trans      &trans      &trans
-            &trans         &trans   &trans      &trans      &trans      &trans                                                                     &trans  &trans  &trans      &trans      &trans      &trans
-            &trans         &trans   &trans      &trans      &trans      &trans                                                                     &trans  &trans  &trans      &trans      &trans      &trans
-            &trans         &kp A    &kp S       &kp D       &kp F       &kp G                                                                      &kp H   &kp J   &kp K       &kp L       &kp SEMI    &trans
-            &trans         &trans   &trans      &trans      &trans      &trans  &trans      &trans       &trans      &trans     &trans     &trans  &trans  &trans   &trans     &trans      &trans      &trans
-            &mo _MAGIC     &trans   &trans      &trans      &trans              &kp BSPC    &kp SPACE    &kp TAB     &kp ESC    &kp DEL    &kp RET         &trans   &trans     &trans      &trans      &trans
+            &trans     &trans    &trans      &trans      &trans                                                                                             &trans  &trans      &trans      &trans      &trans
+            &trans     &trans    &trans      &trans      &trans      &trans                                                                         &trans  &trans  &trans      &trans      &trans      &trans
+            &trans     &trans    &trans      &trans      &trans      &trans                                                                         &trans  &trans  &trans      &trans      &trans      &trans
+            &trans     &kp A     &kp S       &kp D       &kp F       &kp G                                                                          &kp H   &kp J   &kp K       &kp L       &kp SEMI    &trans
+            &trans     &trans    &trans      &trans      &trans      &trans    &trans      &trans       &trans      &trans     &trans     &trans    &trans  &trans   &trans     &trans      &trans      &trans
+            &trans     &trans    &trans      &trans      &trans                &trans      &trans       &trans      &trans     &trans     &trans            &trans   &trans     &trans      &trans      &trans
             >;
         };
 
@@ -459,8 +459,8 @@
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             SM_EXCL   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
             SM_HASH   SM_CRET   SM_EQL    SM_UNDS   SM_DLR    SM_ASTR                                                               &none     &kp RSHFT &kp RCTRL &kp RALT  &kp RGUI  &none
-            SM_AMPS   SM_LT     SM_PIPE   SM_MINS   SM_GT     SM_PLUS   &trans    &none     &none     &none     &none     &trans    &kp TAB   &kp SPC   &kp RET   &kp BSPC  &kp DEL   &none
-            &trans    &none     &none     &none     &none               SM_PERC   SM_ADS    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
+            SM_AMPS   SM_LT     SM_PIPE   SM_MINS   SM_GT     SM_PLUS   &trans    &trans    &trans    &trans    &trans    &trans    &kp TAB   &kp SPC   &kp RET   &kp BSPC  &kp DEL   &none
+            &trans    &none     &none     &none     &none               SM_PERC   SM_ADS    &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
 
@@ -478,8 +478,8 @@
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &none     &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
             &none     &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                 &kp HOME  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp END
-            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans    SM_LBRC   SM_LCBR   SM_LPRN   SM_RPRN   SM_RCBR   SM_RBRC
-            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     SM_BSLS   SM_TICK             &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none     &trans    &trans    &trans    &trans    &trans    &trans    SM_LBRC   SM_LCBR   SM_LPRN   SM_RPRN   SM_RCBR   SM_RBRC
+            &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    SM_BSLS   SM_TICK             &none     &none     &none     &none     &none
             >;
         };
 
@@ -496,8 +496,8 @@
             &none     &none     &none     &none     &none     &none                                                                  &none      &none     &none     &none     &none            &none
             &none     &kp DEL   &kp BSPC  &kp RET   &kp SPC   &none                                                                  &kp KP_NUM &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp COLON        &kp PRCNT
             &kp CALC  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                  &kp LPAR   &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS     &kp KP_PLUS
-            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans     &kp RPAR   &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY  &kp KP_DIVIDE
-            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &kp KP_N0 &kp KP_DOT            &none     &none     &none     &none            &none
+            &none     &none     &none     &none     &none     &none     &trans    &trans    &trans    &trans    &trans    &trans     &kp RPAR   &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY  &kp KP_DIVIDE
+            &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT            &none     &none     &none     &none            &none
             >;
         };
 
@@ -514,8 +514,8 @@
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
-            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans    &none     &none     &none     &none     &none     &none
-            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none     &trans    &trans    &trans    &trans    &trans    &trans    &none     &none     &none     &none     &none     &none
+            &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
 
@@ -525,8 +525,8 @@
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
-            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans    &none     &none     &none     &none     &none     &none
-            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none     &trans    &trans    &trans    &trans    &trans    &trans    &none     &none     &none     &none     &none     &none
+            &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
 
@@ -540,8 +540,8 @@
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &kp INS   MD_MUTE   MD_VOLD   MD_VOLU   &none     &none                                                                 &none     &kp F7    &kp F8    &kp F9    &kp F10   &kp F13
             &kp CAPS  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                 &none     &kp F4    &kp F5    &kp F6    &kp F11   &kp F14
-            TG_TYP    MD_MPLY   MD_MPRV   MD_MNXT   &none     &none     &trans    &none     &none     &none     &none     &trans    &none     &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
-            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
+            TG_TYP    MD_MPLY   MD_MPRV   MD_MNXT   &none     &none     &trans    &trans    &trans    &trans    &trans    &trans    &none     &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
+            &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
 
@@ -551,8 +551,8 @@
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
-            &none     &none     &none     &none     &none     &none     &trans    &none     &none     &none     &none     &trans    &none     &none     &none     &none     &none     &none
-            &trans    &none     &none     &none     &none               &trans    &trans    &none     &none     &trans    &trans              &none     &none     &none     &none     &none
+            &none     &none     &none     &none     &none     &none     TG_NUM    TG_NAV    &trans    &trans    TG_SYM    TG_FN     &none     &none     &none     &none     &none     &none
+            &trans    &none     &none     &none     &none               TG_CSR    &trans    &trans    &trans    &trans    TG_MSE              &none     &none     &none     &none     &none
             >;
         };
 
