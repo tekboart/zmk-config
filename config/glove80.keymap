@@ -328,7 +328,24 @@
         // TODO: Pressing magic key twice, will light up the assigned keys in magic key.
     };
 
+    // #######################################################
+    // Macros
+    // #######################################################
     macros {
+        // -------------------------------------------------------
+        // Output three backticks (```) for code blocks in Markdown or other formats.
+        // -------------------------------------------------------
+        mc_tick: MC_TICK {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>;
+        };
+
+        // -------------------------------------------------------
+        // Glove80 Bluetooth buttons
+        // -------------------------------------------------------
         bt_0: bt_profile_macro_0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -458,7 +475,7 @@
             &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             SM_EXCL   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
-            SM_HASH   SM_CRET   SM_EQL    SM_UNDS   SM_DLR    SM_ASTR                                                               &none     &kp RSHFT &kp RCTRL &kp RALT  &kp RGUI  &none
+            SM_HASH   SM_CRET   SM_EQL    SM_UNDS   SM_DLR    SM_ASTR                                                               &none     &kp RSHFT &kp RCTRL &kp RALT  &kp RGUI  MC_TICK
             SM_AMPS   SM_LT     SM_PIPE   SM_MINS   SM_GT     SM_PLUS   SM_PERC   SM_ADS    &trans    &trans    &trans    &trans    &kp TAB   &kp SPC   &kp RET   &kp BSPC  &kp DEL   &none
             &trans    &none     &none     &none     &none               SM_PERC   SM_ADS    &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
             >;
