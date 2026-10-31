@@ -264,14 +264,19 @@
 
 / {
     behaviors {
-        // For the "layer" key, it'd benice to be able to use it as either a shift or a toggle.
-        // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
-        /* layer_td: tap_dance_0 { */
-        /*     compatible = "zmk,behavior-tap-dance"; */
-        /*     #binding-cells = <0>; */
-        /*     tapping-term-ms = <200>; */
-        /*     bindings = <&mo LOWER>, <&to LOWER>; */
-        /* }; */
+        //////////////////////////////////////////////////////////////////////////
+        //
+        // Customize tapping terms
+        //
+        //////////////////////////////////////////////////////////////////////////
+        // define shared values
+        // migrated from QMK
+        #define TAPPING_TERM   200  // Default: 200 (ms)
+        #define QUICK_TAP_TERM  80  // Default: TAPPING_TERM
+        #define FLOW_TAP_TERM  150
+        #define CHORDAL_HOLD
+        // ZMK specific
+        #define REQ_PRIOR_HOLD  // 
 
         //////////////////////////////////////////////////////////////////////////
         //
@@ -279,46 +284,32 @@
         //
         //////////////////////////////////////////////////////////////////////////
 
-        //
         // CapsWord - ported from Pascal Getreuer's extension for QMK
         // - https://zmk.dev/docs/behaviors/caps-word
         // - https://getreuer.info/posts/keyboards/caps-word/index.html
-        //
         caps_word {
           continue-list = <
             UNDERSCORE MINUS
             BACKSPACE DELETE
             N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
+            KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9 KP_N0
           >;
         };
 
         // TODO: enable caps_word with both shifts pressed
 
-        //////////////////////////////////////////////////////////////////////////
-        //
-        // QMK-style MT (Mod-Tap) keys
-        //
-        //////////////////////////////////////////////////////////////////////////
-        // Generic mod-tap:
-        // &mt MODIFIER KEY
-        // FIXME: it seems zmk now natively supports mt
-        /* mt: mt { */
-        /*     compatible = "zmk,behavior-hold-tap"; */
-        /*     #binding-cells = <2>; */
-        /*     flavor = "balanced"; */
-        /*     tapping-term-ms = <200>; */
-        /*     bindings = <&kp>, <&kp>; */
-        /* }; */
+        // customize tapping term for mode-tap behaviors
+        &mt {
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;  // default: 150 (ms)
+            tapping-term-ms = <TAPPING_TERM>;
+            quick-tap-ms = <QUICK_TAP_TERM>;
+        };
 
-        // Generic home-row mod:
-        // Same behavior, but with your preferred HRM settings.
-        /* hrm: hrm { */
-        /*     compatible = "zmk,behavior-hold-tap"; */
-        /*     #binding-cells = <2>; */
-        /*     flavor = "balanced"; */
-        /*     tapping-term-ms = <200>; */
-        /*     bindings = <&kp>, <&kp>; */
-        /* }; */
+        // customize tapping term for layer-tap behaviors
+        &lt {
+            tapping-term-ms = <200>; // default: 200
+        };
 
         //////////////////////////////////////////////////////////////////////////
         //
