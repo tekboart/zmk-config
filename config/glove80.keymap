@@ -262,21 +262,22 @@
 #define _FIND_NEXT  _C(G)
 #define _FIND_PREV  _C(LS(G))
 
+//////////////////////////////////////////////////////////////////////////
+//
+// tap/hold configs
+//
+//////////////////////////////////////////////////////////////////////////
+// migrated from QMK
+#define TAPPING_TERM   200  // Default: 200 (ms)
+#define QUICK_TAP_TERM  80  // Default: TAPPIG_TERM
+#define FLOW_TAP_TERM  150
+#define CHORDAL_HOLD
+// ZMK specific
+#define FLAVOR tap-preferred  // Options: hold-preferred, balanced, tap-preferred
+#define REQ_PRIOR_HOLD  125  // Default: ???
+
 / {
     behaviors {
-        //////////////////////////////////////////////////////////////////////////
-        //
-        // Customize tapping terms
-        //
-        //////////////////////////////////////////////////////////////////////////
-        // define shared values
-        // migrated from QMK
-        #define TAPPING_TERM   200  // Default: 200 (ms)
-        #define QUICK_TAP_TERM  80  // Default: TAPPING_TERM
-        #define FLOW_TAP_TERM  150
-        #define CHORDAL_HOLD
-        // ZMK specific
-        #define REQ_PRIOR_HOLD  // 
 
         //////////////////////////////////////////////////////////////////////////
         //
@@ -287,7 +288,7 @@
         // CapsWord - ported from Pascal Getreuer's extension for QMK
         // - https://zmk.dev/docs/behaviors/caps-word
         // - https://getreuer.info/posts/keyboards/caps-word/index.html
-        caps_word {
+        &caps_word {
           continue-list = <
             UNDERSCORE MINUS
             BACKSPACE DELETE
@@ -298,15 +299,15 @@
 
         // TODO: enable caps_word with both shifts pressed
 
-        // customize tapping term for mode-tap behaviors
+        // customizing the default mode-tap behavior
         &mt {
-            flavor = "balanced";
+            flavor = "tap-preferred";
             require-prior-idle-ms = <150>;  // default: 150 (ms)
             tapping-term-ms = <TAPPING_TERM>;
             quick-tap-ms = <QUICK_TAP_TERM>;
         };
 
-        // customize tapping term for layer-tap behaviors
+        // customizing the default layer-tap behavior
         &lt {
             tapping-term-ms = <200>; // default: 200
         };
@@ -504,7 +505,7 @@
             &none     &none     &none     &none     &none     &none                                                                  &none      &none     &none     &none     &none            &none
             &none     &kp DEL   &kp BSPC  &kp RET   &kp SPC   &none                                                                  &kp KP_NUM &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp COLON        &kp PRCNT
             &kp CALC  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                  &kp LPAR   &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS     &kp KP_PLUS
-            &none     &none     &none     &none     &none     &none     &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT &kp RPAR   &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY  &kp KP_DIVIDE
+            &none     &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none     &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT &kp RPAR   &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY  &kp KP_DIVIDE
             &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT            &none     &none     &none     &none            &none
             >;
         };
