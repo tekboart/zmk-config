@@ -276,41 +276,43 @@
 #define FLAVOR tap-preferred  // Options: hold-preferred, balanced, tap-preferred
 #define REQ_PRIOR_HOLD  125  // Default: ???
 
+//////////////////////////////////////////////////////////////////////////
+//
+// ZMK global overrides
+//
+//////////////////////////////////////////////////////////////////////////
+
+// CapsWord - ported from Pascal Getreuer's extension for QMK
+// - https://zmk.dev/docs/behaviors/caps-word
+// - https://getreuer.info/posts/keyboards/caps-word/index.html
+&caps_word {
+  continue-list = <
+    UNDERSCORE MINUS
+    BACKSPACE DELETE
+    N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
+    KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9 KP_N0
+  >;
+};
+
+// TODO: enable caps_word with both shifts pressed
+
+// customizing the default mode-tap behavior
+&mt {
+    flavor = "tap-preferred";
+    require-prior-idle-ms = <150>;  // default: 150 (ms)
+    tapping-term-ms = <TAPPING_TERM>;
+    quick-tap-ms = <QUICK_TAP_TERM>;
+};
+
+// customizing the default layer-tap behavior
+&lt {
+    tapping-term-ms = <200>; // default: 200
+};
+
+
 / {
     behaviors {
 
-        //////////////////////////////////////////////////////////////////////////
-        //
-        // ZMK global overrides
-        //
-        //////////////////////////////////////////////////////////////////////////
-
-        // CapsWord - ported from Pascal Getreuer's extension for QMK
-        // - https://zmk.dev/docs/behaviors/caps-word
-        // - https://getreuer.info/posts/keyboards/caps-word/index.html
-        &caps_word {
-          continue-list = <
-            UNDERSCORE MINUS
-            BACKSPACE DELETE
-            N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
-            KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9 KP_N0
-          >;
-        };
-
-        // TODO: enable caps_word with both shifts pressed
-
-        // customizing the default mode-tap behavior
-        &mt {
-            flavor = "tap-preferred";
-            require-prior-idle-ms = <150>;  // default: 150 (ms)
-            tapping-term-ms = <TAPPING_TERM>;
-            quick-tap-ms = <QUICK_TAP_TERM>;
-        };
-
-        // customizing the default layer-tap behavior
-        &lt {
-            tapping-term-ms = <200>; // default: 200
-        };
 
         //////////////////////////////////////////////////////////////////////////
         //
