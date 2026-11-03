@@ -119,16 +119,16 @@
 
 // ------- Define Aliases: Home Row Mods (HRMs) -------
 // for Win/Linux
-#define HRW_A    &mt LGUI A
-#define HRW_S    &mt LALT S
-#define HRW_D    &mt LCTRL D
-#define HRW_F    &mt LSHFT F
-#define HRW_G    &kp G
-#define HRW_H    &kp H
-#define HRW_J    &mt RSHFT J
-#define HRW_K    &mt RCTRL K
-#define HRW_L    &mt RALT L
-#define HRW_SCLN &mt RGUI SEMI
+#define HRW_LP    &mt LGUI A
+#define HRW_LR    &mt LALT S
+#define HRW_LM    &mt LCTRL D
+#define HRW_LI    &mt LSHFT F
+#define HRW_LME    &kp G
+#define HRW_RME    &kp H
+#define HRW_RI    &mt RSHFT J
+#define HRW_RM    &mt RCTRL K
+#define HRW_RR    &mt RALT L
+#define HRW_RP &mt RGUI SEMI
 // for MAC
 #define HRM_A    &mt LCTRL A
 #define HRM_S    &mt LALT S
@@ -262,27 +262,96 @@
 #define _FIND_NEXT  _C(G)
 #define _FIND_PREV  _C(LS(G))
 
-//////////////////////////////////////////////////////////////////////////
-//
-// tap/hold configs
-//
-//////////////////////////////////////////////////////////////////////////
+// ########################################################################
+// Tap-Hold Configs
+// ########################################################################
+
+// ------------------------------------------------------------------------
+// Set tapping TERMs
+// ------------------------------------------------------------------------
+
+// ........................................................................
+// Guides
+// ........................................................................
+
+// Sunsaku's suggested TAPPING_TERM, based on difficulty:
+// LEVEL 0 => sunaku (150ms)
+// LEVEL 1 => novice (500ms)
+// LEVEL 2 => slower (400ms)
+// LEVEL 3 => normal (300ms)
+// LEVEL 4 => faster (200ms)
+// LEVEL 5 => expert (100ms)
+
+// Tapping FLavors (flavor)
+// hold_preferred:         (~QMK's HOLD_ON_OTHER_KEY_PRESS)(Good for Thumb keys)
+// balanced:               (~QMK's PERMISSIVE_HOLD)
+// tap-preferred:          (~QMK's default)(Good for Legato typing)
+// tap-unless-interrupted:
+
+// Quick Tap (quick_tap_ms): it's very useful for HRM keys that double as vim nav keys.
+
+// require-prior-idle-ms: timeout for typing streak enforcement (~QMK's FLOW_TAP_TERM).
+
+// ........................................................................
 // migrated from QMK
-#define TAPPING_TERM   200  // Default: 200 (ms)
-#define QUICK_TAP_TERM  80  // Default: TAPPIG_TERM
-#define FLOW_TAP_TERM  150
-#define CHORDAL_HOLD
-// ZMK specific
-#define FLAVOR tap-preferred  // Options: hold-preferred, balanced, tap-preferred
-#define REQ_PRIOR_HOLD  125  // Default: ???
+// ........................................................................
+#define TAPPING_TERM   150                   // The duration, after which, a key is considered held. Default: 200 (ms)
+#define QUICK_TAP_TERM (TAPPING_TERM + 150)  // Time after a tap, during which holding the same key results in auto-repeat. Default: = TAPPING_TERM
+#define FLOW_TAP_TERM  (TAPPING_TERM - 50)   // Disables holds when typing quickly.
 
-//////////////////////////////////////////////////////////////////////////
-//
+// ........................................................................
+// ZMK
+// ........................................................................
+
+// Home Row Mods (HRM)
+#define HOMEY_HOLDING_TYPE "tap-preferred"             // Options: hold-preferred, balanced, tap-preferred
+#define HOMEY_HOLDING_TIME (TAPPING_TERM + 90)         // HRM keys tapping TERM
+#define HOMEY_STREAK_DECAY (TAPPING_TERM)              // Defines how long to wait until you can use HRM keys again.
+#define HOMEY_REPEAT_DECAY (QUICK_TAP_TERM)  // Time after a tap, during which holding the same key results in auto-repeat.
+// CHORD (i.e., opposite-hand)
+#define CHORD_HOLDING_TYPE HOMEY_HOLDING_TYPE          // Defines the flavor of ZMK hold-tap flavor for CHORD keys
+#define CHORD_HOLDING_TIME TAPPING_RESOLUTION
+#define CHORD_STREAK_DECAY HOMEY_STREAK_DECAY
+#define CHORD_REPEAT_DECAY HOMEY_REPEAT_DECAY
+// INDEX Finger
+#define INDEX_HOLDING_TYPE HOMEY_HOLDING_TYPE
+#define INDEX_HOLDING_TIME (TAPPING_RESOLUTION + 30)
+#define INDEX_STREAK_DECAY HOMEY_STREAK_DECAY
+#define INDEX_REPEAT_DECAY HOMEY_REPEAT_DECAY
+// MIDDLE Finger
+#define MIDDY_HOLDING_TYPE HOMEY_HOLDING_TYPE
+#define MIDDY_HOLDING_TIME (TAPPING_RESOLUTION + 60)
+#define MIDDY_STREAK_DECAY HOMEY_STREAK_DECAY
+#define MIDDY_REPEAT_DECAY HOMEY_REPEAT_DECAY
+// RING Finger
+#define RINGY_HOLDING_TYPE HOMEY_HOLDING_TYPE
+#define RINGY_HOLDING_TIME (TAPPING_RESOLUTION + 90)
+#define RINGY_STREAK_DECAY HOMEY_STREAK_DECAY
+#define RINGY_REPEAT_DECAY HOMEY_REPEAT_DECAY
+// PINKY Finger
+#define PINKY_HOLDING_TYPE HOMEY_HOLDING_TYPE
+#define PINKY_HOLDING_TIME (TAPPING_RESOLUTION + 120)
+#define PINKY_STREAK_DECAY HOMEY_STREAK_DECAY
+#define PINKY_REPEAT_DECAY HOMEY_REPEAT_DECAY
+// THUMB_HOLDING_TYPE defines the flavor of ZMK hold-tap flavor for Thumb keys
+#define THUMB_HOLDING_TYPE "hold-preferred"     // Options: hold-preferred, balanced (sunsaku's pref), tap-preferred
+#define THUMB_HOLDING_TIME (TAPPING_TERM - 25)  // THUMB keys tapping TERM
+#define THUMB_STREAK_DECAY TAPPING_TERM         // Defines how long to wait until you can use THUMB keys again.
+#define THUMB_REPEAT_DECAY (QUICK_TAP_TERM)  // Time after a tap, during which holding the same key results in auto-repeat.
+
+// ........................................................................
+// Miryoku
+// ........................................................................
+#define ENFORCE_BILATERAL  // Cancels out single-handed HRMs activation and replacing them with taps.
+
+// ########################################################################
 // ZMK global overrides
-//
-//////////////////////////////////////////////////////////////////////////
+// ########################################################################
 
+// ------------------------------------------------------------------------
 // CapsWord - ported from Pascal Getreuer's extension for QMK
+// ------------------------------------------------------------------------
+
 // - https://zmk.dev/docs/behaviors/caps-word
 // - https://getreuer.info/posts/keyboards/caps-word/index.html
 &caps_word {
@@ -296,35 +365,37 @@
 
 // TODO: enable caps_word with both shifts pressed
 
-// customizing the default mode-tap behavior
+// ------------------------------------------------------------------------
+// Default Mod-Tap keycode
+// ------------------------------------------------------------------------
 &mt {
-    flavor = "tap-preferred";
-    require-prior-idle-ms = <150>;  // default: 150 (ms)
-    tapping-term-ms = <TAPPING_TERM>;
-    quick-tap-ms = <QUICK_TAP_TERM>;
+    flavor = HOMEY_HOLDING_TYPE;
+    tapping-term-ms = <HOMEY_HOLDING_TIME>;
+    quick-tap-ms = <HOMEY_REPEAT_DECAY>;
+    require-prior-idle-ms = <FLOW_TAP_TERM>;
 };
 
-// customizing the default layer-tap behavior
+// ------------------------------------------------------------------------
+// Default Layer-Tap keycode
+// ------------------------------------------------------------------------
 &lt {
-    tapping-term-ms = <200>; // default: 200
+    flavor = THUMB_HOLDING_TYPE;
+    tapping-term-ms = <TAPPING_TERM>;
+    quick-tap-ms = <THUMB_REPEAT_DECAY>;
 };
-
 
 / {
+    // ########################################################################
+    // Define Custom behaviors
+    // ########################################################################
     behaviors {
 
-
-        //////////////////////////////////////////////////////////////////////////
-        //
-        // Misc
-        //
-        //////////////////////////////////////////////////////////////////////////
         // TODO: Pressing magic key twice, will light up the assigned keys in magic key.
     };
 
-    // #######################################################
+    // ########################################################################
     // Macros
-    // #######################################################
+    // ########################################################################
     macros {
         // -------------------------------------------------------
         // Output three backticks (```) for code blocks in Markdown or other formats.
@@ -373,6 +444,9 @@
         };
     };
 
+    // ########################################################################
+    // Define Keymaps
+    // ########################################################################
     keymap {
         compatible = "zmk,keymap";
 
@@ -411,7 +485,7 @@
             &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &kp LBKT  &kp Q     &kp W     &kp E     &kp R     &kp T                                                                 &kp Y     &kp U     &kp I     &kp O     &kp P     &kp RBKT
-            &kp BSPC  HRW_A     HRW_S     HRW_D     HRW_F     HRW_G                                                                 HRW_H     HRW_J     HRW_K     HRW_L     HRW_SCLN  &kp SQT
+            &kp BSPC  HRW_LP     HRW_LR     HRW_LM     HRW_LI     HRW_LME                                                                 HRW_RME     HRW_RI     HRW_RM     HRW_RR     HRW_RP  &kp SQT
             ST_LSFT   &kp Z     &kp X     &kp C     &kp V     &kp B     LT_NUM    LT_NAV    &none     &none     LT_SYM    LT_FN     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  ST_RSFT
             MO_MGC    &none     &none     &none     MO_CSR              LT_NUM    LT_NAV    &none     &none     LT_SYM    LT_FN               MO_MSE    &none     &none     &none     MO_MGC
             >;
@@ -569,6 +643,9 @@
 
     };
 
+    // ########################################################################
+    // Define RGB Layout
+    // ########################################################################
     //////////////////////////////////////////////////////////////////////////////
     //
     // Per-key RGB indicators for layers & mods -- requires PR36 beta firmware:
