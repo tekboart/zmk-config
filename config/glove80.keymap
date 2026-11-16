@@ -781,11 +781,12 @@
         // Output three backticks (```) for code blocks in Markdown or other formats.
         // .......................................................
 
-        ZMK_MACRO(mc_tick,
+        ZMK_MACRO(triple_backtick,
             wait-ms = <0>;
             tap-ms = <0>;
             bindings = <&macro_tap &kp GRAVE &kp GRAVE &kp GRAVE>;
         )
+        #define MC_TICK &triple_backtick
 
         // FIXME: just copied, double check this section.
         // -------------------------------------------------------
@@ -803,7 +804,7 @@
         #endif
 
         #define select_all kp _C(A)
-        #define SEL_ALL select_all
+        #define SEL_ALL &select_all
 
         ZMK_MACRO(select_none,
             wait-ms = <SELECT_WORD_DELAY>;
@@ -830,7 +831,7 @@
             tap-ms = <SELECT_WORD_DELAY>;
             bindings = <&kp _WORD(LEFT) &kp _WORD(RIGHT) &kp _WORD(LS(LEFT))>;
         )
-        #define SEL_WRD select_word
+        #define SEL_WRD &select_word
 
         //
         // extend current selection by one word
@@ -871,7 +872,7 @@
             tap-ms = <SELECT_WORD_DELAY>;
             bindings = <&kp _END &kp LS(_HOME)>;
         )
-        #define SEL_LNE select_line
+        #define SEL_LNE &select_line
 
         //
         // extend current selection by one line
@@ -992,7 +993,7 @@
             &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             SM_EXCL   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
-            SM_HASH   SM_CRET   SM_EQL    SM_UNDS   SM_DLR    SM_ASTR                                                               &none     &kp RSHFT &kp RCTRL &kp RALT  &kp RGUI  &mc_tick
+            SM_HASH   SM_CRET   SM_EQL    SM_UNDS   SM_DLR    SM_ASTR                                                               &none     &kp RSHFT &kp RCTRL &kp RALT  &kp RGUI  MC_TICK
             SM_AMPS   SM_LT     SM_PIPE   SM_MINS   SM_GT     SM_PLUS   SM_PERC   SM_ADS    &trans    &trans    &trans    &trans    &kp TAB   &kp SPC   &kp RET   &kp BSPC  &kp DEL   &none
             &trans    &none     &none     &none     &none               SM_PERC   SM_ADS    &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
             >;
