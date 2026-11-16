@@ -154,11 +154,26 @@
 #define PINKY_HOLDING_TIME (TAPPING_RESOLUTION + 120)
 #define PINKY_FLOW_DECAY HOMEY_FLOW_DECAY
 #define PINKY_REPEAT_DECAY HOMEY_REPEAT_DECAY
-// THUMB_HOLDING_TYPE defines the flavor of ZMK hold-tap flavor for Thumb keys
-#define THUMB_HOLDING_TYPE "balanced"     // Options: hold-preferred, balanced (sunsaku's pref), tap-preferred
+// THUMB KEYs
+#define THUMB_HOLDING_TYPE "balanced"           // Options: hold-preferred, balanced (sunsaku's pref), tap-preferred
 #define THUMB_HOLDING_TIME (TAPPING_TERM + 50)  // THUMB keys tapping TERM
-#define THUMB_FLOW_DECAY TAPPING_TERM         // Defines how long to wait until you can use THUMB keys again.
-#define THUMB_REPEAT_DECAY (QUICK_TAP_TERM)  // Time after a tap, during which holding the same key results in auto-repeat.
+#define THUMB_FLOW_DECAY TAPPING_TERM           // Defines how long to wait until you can use THUMB keys again.
+#define THUMB_REPEAT_DECAY (QUICK_TAP_TERM)     // Time after a tap, during which holding the same key results in auto-repeat.
+// SPACE thumb key
+#define SPACE_HOLDING_TYPE THUMB_HOLDING_TYPE
+#define SPACE_HOLDING_TIME (THUMB_HOLDING_TIME - 10)
+#define SPACE_FLOW_DECAY THUMB_FLOW_DECAY
+#define SPACE_REPEAT_DECAY THUMB_REPEAT_DECAY
+// ENTER thumb key
+#define ENTER_HOLDING_TYPE THUMB_HOLDING_TYPE
+#define ENTER_HOLDING_TIME (THUMB_HOLDING_TIME - 25)
+#define ENTER_FLOW_DECAY THUMB_FLOW_DECAY
+#define ENTER_REPEAT_DECAY THUMB_REPEAT_DECAY
+// ESC thumb key
+#define ESC_HOLDING_TYPE THUMB_HOLDING_TYPE
+#define ESC_HOLDING_TIME THUMB_HOLDING_TIME
+#define ESC_FLOW_DECAY THUMB_FLOW_DECAY
+#define ESC_REPEAT_DECAY THUMB_REPEAT_DECAY
 
 // ........................................................................
 // Miryoku
@@ -247,10 +262,10 @@
 #define TO_MSE   &to  _MOUSE
 
 // Function Layer
-#define LT_FN   &tmb_tap  _FUNCTION ESC
-#define MO_FN   &mo  _FUNCTION
-#define TG_FN   &tog _FUNCTION
-#define TO_FN   &to  _FUNCTION
+#define LT_FN    &tmb_esc  _FUNCTION ESC
+#define MO_FN    &mo  _FUNCTION
+#define TG_FN    &tog _FUNCTION
+#define TO_FN    &to  _FUNCTION
 
 // Magic Layer
 #define MO_MGC   &mo  _MAGIC
@@ -645,8 +660,10 @@
           bindings = <&mo>, <&kp>;
       };
 
+      // THUMB cluster keys
+      // NOTE: Don't use `require-prior-idle-ms` for thumb keys, as it make them part of the flow, hence unwanted taps.
+
       // thumb tap
-      // TODO: Add LEFT/RIGHT variants, just like HRM keys.
       tmb_tap: thumb_keys_tap_preferred {
           compatible = "zmk,behavior-hold-tap";
           display-name = "LAYER-TAP_preferred (Thumb)";
@@ -672,10 +689,10 @@
       tmb_spc: thumb_keys_space {
           compatible = "zmk,behavior-hold-tap";
           display-name = "Layer-Space (Thumb)";
-          flavor = "balanced";
+          flavor = SPACE_HOLDING_TYPE;
           // FIXME: put this value in the var declaration section above, so it's easier to change it in one place.
-          tapping-term-ms = <(THUMB_HOLDING_TIME - 10)>;  // I found 14Oms to be a good tradeoff.
-          quick-tap-ms = <THUMB_REPEAT_DECAY>;
+          tapping-term-ms = <SPACE_HOLDING_TIME>;  // I found 14Oms to be a good tradeoff.
+          quick-tap-ms = <SPACE_REPEAT_DECAY>;
           #binding-cells = <2>;
           bindings = <&mo>, <&kp>;
       };
@@ -684,10 +701,21 @@
       tmb_ent: thumb_keys_enter {
           compatible = "zmk,behavior-hold-tap";
           display-name = "Layer-Enter (Thumb)";
-          flavor = "balanced";
+          flavor = ENTER_HOLDING_TYPE;
           // FIXME: put this value in the var declaration section above, so it's easier to change it in one place.
-          tapping-term-ms = <(THUMB_HOLDING_TIME - 25)>;  // I found 125ms to a good tradeoff.
-          quick-tap-ms = <THUMB_REPEAT_DECAY>;
+          tapping-term-ms = <ENTER_HOLDING_TIME>;  // I found 125ms to a good tradeoff.
+          quick-tap-ms = <ENTER_REPEAT_DECAY>;
+          #binding-cells = <2>;
+          bindings = <&mo>, <&kp>;
+      };
+
+      // thumb (tap: escape)
+      tmb_esc: thumb_keys_escape {
+          compatible = "zmk,behavior-hold-tap";
+          display-name = "Layer-Escape (Thumb)";
+          flavor = ESC_HOLDING_TYPE;
+          tapping-term-ms = <ESC_HOLDING_TIME>;  // I found 130ms to a good tradeoff.
+          quick-tap-ms = <ESC_REPEAT_DECAY>;
           #binding-cells = <2>;
           bindings = <&mo>, <&kp>;
       };
