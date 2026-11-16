@@ -649,7 +649,7 @@
           compatible = "zmk,behavior-hold-tap";
           display-name = "LAYER-TAP_preferred (Thumb)";
           flavor = "tap-preferred";
-          tapping-term-ms = <THUMB_HOLDING_TIME - 15>;
+          tapping-term-ms = <(THUMB_HOLDING_TIME - 15)>;  // FIXME: add this value to the var declaration section above, so it's easier to change it in one place.
           quick-tap-ms = <THUMB_REPEAT_DECAY>;
           #binding-cells = <2>;
           bindings = <&mo>, <&kp>;
@@ -669,7 +669,8 @@
           compatible = "zmk,behavior-hold-tap";
           display-name = "Layer-Space (Thumb)";
           flavor = "balanced";
-          tapping-term-ms = <THUMB_HOLDING_TIME - 10>;  // I found 14Oms
+          // FIXME: put this value in the var declaration section above, so it's easier to change it in one place.
+          tapping-term-ms = <(THUMB_HOLDING_TIME - 10)>;  // I found 14Oms to be a good tradeoff.
           quick-tap-ms = <THUMB_REPEAT_DECAY>;
       };
 
@@ -678,7 +679,8 @@
           compatible = "zmk,behavior-hold-tap";
           display-name = "Layer-Enter (Thumb)";
           flavor = "balanced";
-          tapping-term-ms = <THUMB_HOLDING_TIME - 25>;  // I found 125ms to a good tradeoff.
+          // FIXME: put this value in the var declaration section above, so it's easier to change it in one place.
+          tapping-term-ms = <(THUMB_HOLDING_TIME - 25)>;  // I found 125ms to a good tradeoff.
           quick-tap-ms = <THUMB_REPEAT_DECAY>;
       };
 
