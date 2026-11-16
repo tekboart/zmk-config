@@ -504,7 +504,7 @@
       };
 
       // hrm_index_finger (left)
-      hrm_index: home_row_mods_left_index {
+      hrm_li: home_row_mods_left_index {
           compatible = "zmk,behavior-hold-tap";
           flavor = INDEX_HOLDING_TYPE;
           hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
@@ -517,17 +517,17 @@
       };
 
       // hrm_index_finger (right)
-        hrm_rindex: home_row_mods_right_index {
-            compatible = "zmk,behavior-hold-tap";
-            flavor = INDEX_HOLDING_TYPE;
-            hold-trigger-key-positions = <LEFT_HAND_KEYS>;
-            hold-trigger-on-release; // wait for other home row mods
-            tapping-term-ms = <INDEX_HOLDING_TIME>;
-            quick-tap-ms = <INDEX_REPEAT_DECAY>;
-            require-prior-idle-ms = <INDEX_FLOW_DECAY>;
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
+      hrm_ri: home_row_mods_right_index {
+          compatible = "zmk,behavior-hold-tap";
+          flavor = INDEX_HOLDING_TYPE;
+          hold-trigger-key-positions = <LEFT_HAND_KEYS>;
+          hold-trigger-on-release; // wait for other home row mods
+          tapping-term-ms = <INDEX_HOLDING_TIME>;
+          quick-tap-ms = <INDEX_REPEAT_DECAY>;
+          require-prior-idle-ms = <INDEX_FLOW_DECAY>;
+          #binding-cells = <2>;
+          bindings = <&kp>, <&kp>;
+      };
 
       // hrm_index_finger_meh (left)
       hrm_lim: home_row_mods_left_index_meh {
@@ -543,17 +543,17 @@
       };
 
       // hrm_index_finger_meh (right)
-        hrm_rim: home_row_mods_right_index_meh {
-            compatible = "zmk,behavior-hold-tap";
-            flavor = MEH_HOLDING_TYPE;
-            hold-trigger-key-positions = <LEFT_HAND_KEYS>;
-            hold-trigger-on-release; // wait for other home row mods
-            tapping-term-ms = <MEH_HOLDING_TIME>;
-            quick-tap-ms = <MEH_REPEAT_DECAY>;
-            require-prior-idle-ms = <MEH_FLOW_DECAY>;
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
+      hrm_rim: home_row_mods_right_index_meh {
+          compatible = "zmk,behavior-hold-tap";
+          flavor = MEH_HOLDING_TYPE;
+          hold-trigger-key-positions = <LEFT_HAND_KEYS>;
+          hold-trigger-on-release; // wait for other home row mods
+          tapping-term-ms = <MEH_HOLDING_TIME>;
+          quick-tap-ms = <MEH_REPEAT_DECAY>;
+          require-prior-idle-ms = <MEH_FLOW_DECAY>;
+          #binding-cells = <2>;
+          bindings = <&kp>, <&kp>;
+      };
 
       // hrm_middle_finger (left)
       hrm_lm: home_row_mods_left_middle {
@@ -569,17 +569,17 @@
       };
 
       // hrm_middle_finger (right)
-        hrm_rm: home_row_mods_right_middle {
-            compatible = "zmk,behavior-hold-tap";
-            flavor = MIDDY_HOLDING_TYPE;
-            hold-trigger-key-positions = <LEFT_HAND_KEYS>;
-            hold-trigger-on-release; // wait for other home row mods
-            tapping-term-ms = <MIDDY_HOLDING_TIME>;
-            quick-tap-ms = <MIDDY_REPEAT_DECAY>;
-            require-prior-idle-ms = <MIDDY_FLOW_DECAY>;
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
+      hrm_rm: home_row_mods_right_middle {
+          compatible = "zmk,behavior-hold-tap";
+          flavor = MIDDY_HOLDING_TYPE;
+          hold-trigger-key-positions = <LEFT_HAND_KEYS>;
+          hold-trigger-on-release; // wait for other home row mods
+          tapping-term-ms = <MIDDY_HOLDING_TIME>;
+          quick-tap-ms = <MIDDY_REPEAT_DECAY>;
+          require-prior-idle-ms = <MIDDY_FLOW_DECAY>;
+          #binding-cells = <2>;
+          bindings = <&kp>, <&kp>;
+      };
 
       // hrm_ring_finger (left)
       hrm_lr: home_row_mods_left_ring {
