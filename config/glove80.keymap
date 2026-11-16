@@ -116,6 +116,8 @@
 // ........................................................................
 // ZMK
 // ........................................................................
+// FIXME: just use TAPPING_TERM (so Vars used in QMK and ZMK are mutually consistent)
+#define TAPPING_RESOLUTION TAPPING_TERM
 
 // Home Row Mods (HRM)
 #define HOMEY_HOLDING_TYPE "tap-preferred"             // Options: hold-preferred, balanced, tap-preferred
