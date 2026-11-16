@@ -728,16 +728,6 @@
     // Macros
     // ########################################################################
     macros {
-        // -------------------------------------------------------
-        // Output three backticks (```) for code blocks in Markdown or other formats.
-        // -------------------------------------------------------
-        mc_tick: mc_tick {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>;
-        };
 
         // -------------------------------------------------------
         // Glove80 Bluetooth buttons
@@ -773,6 +763,135 @@
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 3>;
         };
+
+        // -------------------------------------------------------
+        // Mic
+        // -------------------------------------------------------
+
+        // .......................................................
+        // Output two dots
+        // .......................................................
+        ZMK_MACRO(dot_dot,
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_tap &kp DOT &kp DOT>;
+        )
+
+        // .......................................................
+        // Output three backticks (```) for code blocks in Markdown or other formats.
+        // .......................................................
+
+        ZMK_MACRO(mc_tick,
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_tap &kp GRAVE &kp GRAVE &kp GRAVE>;
+        )
+
+        // FIXME: just copied, double check this section.
+        // -------------------------------------------------------
+        //
+        // Approximation of Pascal Getreuer's Select Word macro from QMK
+        // - https://getreuer.info/posts/keyboards/select-word/index.html
+        //
+        // -------------------------------------------------------
+
+        // SELECT_WORD_DELAY defines how long the macro waits (milliseconds)
+        // after moving the cursor before it selects a word.  A larger delay
+        // may allow the macro to move to the next word upon each invocation.
+        #ifndef SELECT_WORD_DELAY
+        #define SELECT_WORD_DELAY 1
+        #endif
+
+        #define select_all kp _C(A)
+        #define SEL_ALL select_all
+
+        ZMK_MACRO(select_none,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp DOWN &kp UP &kp RIGHT &kp LEFT>;
+        )
+
+        //
+        // select a word (jumps to next word upon each successive invocation)
+        //
+        select_word: select_word {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&select_word_right>, <&select_word_left>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        ZMK_MACRO(select_word_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(RIGHT) &kp _WORD(LEFT) &kp _WORD(LS(RIGHT))>;
+        )
+        ZMK_MACRO(select_word_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(LEFT) &kp _WORD(RIGHT) &kp _WORD(LS(LEFT))>;
+        )
+        #define SEL_WRD select_word
+
+        //
+        // extend current selection by one word
+        //
+        extend_word: extend_word {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&extend_word_right>, <&extend_word_left>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        ZMK_MACRO(extend_word_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(LS(RIGHT))>;
+        )
+        ZMK_MACRO(extend_word_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _WORD(LS(LEFT))>;
+        )
+
+        //
+        // select current line
+        //
+        select_line: select_line {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&select_line_right>, <&select_line_left>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        ZMK_MACRO(select_line_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _HOME &kp LS(_END)>;
+        )
+        ZMK_MACRO(select_line_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _END &kp LS(_HOME)>;
+        )
+        #define SEL_LNE select_line
+
+        //
+        // extend current selection by one line
+        //
+        extend_line: extend_line {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&extend_line_right>, <&extend_line_left>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        ZMK_MACRO(extend_line_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp LS(DOWN) &kp LS(_END)>;
+        )
+        ZMK_MACRO(extend_line_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp LS(UP) &kp LS(_HOME)>;
+        )
     };
 
     // ########################################################################
@@ -868,7 +987,6 @@
             >;
         };
 
-        // TODO: Add Macro for trip backticks MC_TICK
         symbol {
             bindings = <
             &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
@@ -885,16 +1003,14 @@
         // TODO: Add CUT
         // TODO: Add COPY
         // TODO: Add PASTE
-        // TODO: add SEL_WRD
-        // TODO: add SEL_LNE
         // TODO: add DEL_NORM
         navigate {
             bindings = <
             &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &none     &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
-            &kp DEL   &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                 &kp HOME  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp END
-            &none     &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none     &trans    &trans    &trans    &trans    SM_BSLS   SM_TICK   SM_LBRC   SM_LCBR   SM_LPRN   SM_RPRN   SM_RCBR   SM_RBRC
+            &kp DEL   &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT SEL_WRD                                                               &kp HOME  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp END
+            &none     &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) SEL_LNE   &trans    &trans    &trans    &trans    SM_BSLS   SM_TICK   SM_LBRC   SM_LCBR   SM_LPRN   SM_RPRN   SM_RCBR   SM_RBRC
             &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    SM_BSLS   SM_TICK             &none     &none     &none     &none     &none
             >;
         };
@@ -904,15 +1020,13 @@
         // TODO: Add CUT
         // TODO: Add COPY
         // TODO: Add PASTE
-        // TODO: add SEL_WRD
-        // TODO: add SEL_LNE
         number {
             bindings = <
             &none     &none     &none     &none     &none                                                                                       &none     &none     &none     &none            &none
             &none     &none     &none     &none     &none     &none                                                                  &none      &none     &none     &none     &none            &none
             &none     &kp DEL   &kp BSPC  &kp RET   &kp SPC   &none                                                                  &kp KP_NUM &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp COLON        &kp PRCNT
-            &kp CALC  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                  &kp LPAR   &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS     &kp KP_PLUS
-            &none     &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &none     &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT &kp RPAR   &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY  &kp KP_DIVIDE
+            &kp CALC  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT SEL_WRD                                                                &kp LPAR   &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS     &kp KP_PLUS
+            &none     &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) SEL_LNE   &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT &kp RPAR   &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY  &kp KP_DIVIDE
             &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT            &none     &none     &none     &none            &none
             >;
         };
