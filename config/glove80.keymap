@@ -217,37 +217,37 @@
 
 // --- Thumb Layer ---
 // Symbol Layer
-#define LT_SYM   &lt  _SYMBOL RET
+#define LT_SYM   &tmb_ent  _SYMBOL RET
 #define MO_SYM   &mo  _SYMBOL
 #define TG_SYM   &tog _SYMBOL
 #define TO_SYM   &to  _SYMBOL
 
 // Navigation Layer
-#define LT_NAV   &lt  _NAVIGATE SPC
+#define LT_NAV   &tmb_spc  _NAVIGATE SPC
 #define MO_NAV   &mo  _NAVIGATE
 #define TG_NAV   &tog _NAVIGATE
 #define TO_NAV   &to  _NAVIGATE
 
 // Number Layer
-#define LT_NUM   &lt  _NUMBER TAB
+#define LT_NUM   &tmb_tap  _NUMBER TAB
 #define MO_NUM   &mo  _NUMBER
 #define TG_NUM   &tog _NUMBER
 #define TO_NUM   &to  _NUMBER
 
 // Cursor Layer
-#define LT_CSR   &lt  _CURSOR N1
+#define LT_CSR   &tmb_hold  _CURSOR N1
 #define MO_CSR   &mo  _CURSOR
 #define TG_CSR   &tog _CURSOR
 #define TO_CSR   &to  _CURSOR
 
 // Mouse Layer
-#define LT_MSE   &lt  _MOUSE N1
+#define LT_MSE   &tmb_hold  _MOUSE N1
 #define MO_MSE   &mo  _MOUSE
 #define TG_MSE   &tog _MOUSE
 #define TO_MSE   &to  _MOUSE
 
 // Function Layer
-#define LT_FN   &lt  _FUNCTION ESC
+#define LT_FN   &tmb_tap  _FUNCTION ESC
 #define MO_FN   &mo  _FUNCTION
 #define TG_FN   &tog _FUNCTION
 #define TO_FN   &to  _FUNCTION
@@ -463,10 +463,9 @@
 // Default Momentary-Layer (&mo) keycode
 // ------------------------------------------------------------------------
 // e.g., MO_MSE, MO_CSR, etc.
-&mo {
-    flavor = "hold-preferred";
-    tapping-term-ms = <(TAPPING_TERM - 100)>;
-};
+// &mo {
+//
+// };
 
 
 / {
@@ -474,14 +473,14 @@
     // Define Custom Conditional Layers
     // ########################################################################
     // conditional_layers {
-
+    //
     // }
 
     // ########################################################################
     // Define Custom Combinations (Combos)
     // ########################################################################
     // combos {
-
+    //
     // }
 
     // ########################################################################
@@ -656,16 +655,16 @@
       };
 
       // thumb hold
-      tmb_hold: thumb_keys_hold {
+      tmb_hold: thumb_keys_hold_preferred {
           compatible = "zmk,behavior-hold-tap";
           display-name = "Layer_preferred-TAP (Thumb)";
-          flavor = "balanced";
+          flavor = "hold-preferred";
           tapping-term-ms = <TAPPING_TERM>;
           quick-tap-ms = <THUMB_REPEAT_DECAY>;
       };
 
       // thumb (tap: space)
-      tmb_space: thumb_keys_space {
+      tmb_spc: thumb_keys_space {
           compatible = "zmk,behavior-hold-tap";
           display-name = "Layer-Space (Thumb)";
           flavor = "balanced";
@@ -675,7 +674,7 @@
       };
 
       // thumb (tap: enter)
-      tmb_enter: thumb_keys_enter {
+      tmb_ent: thumb_keys_enter {
           compatible = "zmk,behavior-hold-tap";
           display-name = "Layer-Enter (Thumb)";
           flavor = "balanced";
