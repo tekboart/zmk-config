@@ -301,9 +301,7 @@
 #define HRW_LM    &hrm_lm  LCTRL  D
 #define HRW_LI    &hrm_li  LSHFT  F
 #define HRW_LME   &hrm_lim LA(LC(LSHFT)) G
-// #define HRW_LME   &kp      G
 #define HRW_RME   &hrm_rim RA(RC(RSHFT)) H
-// #define HRW_RME   &kp      H
 #define HRW_RI    &hrm_ri  RSHFT  J
 #define HRW_RM    &hrm_rm  RCTRL  K
 #define HRW_RR    &hrm_rr  RALT   L
@@ -313,8 +311,8 @@
 #define HRM_LR    &hrm_lr  LALT   S
 #define HRM_LM    &hrm_lm  LGUI   D
 #define HRM_LI    &hrm_li  LSHFT  F
-#define HRM_LME   &kp      G
-#define HRM_RME   &kp      H
+#define HRM_LME   &hrm_lim LA(LC(LSHFT)) G
+#define HRM_RME   &hrm_rim RA(RC(RSHFT)) H
 #define HRM_RI    &hrm_ri  RSHFT  J
 #define HRM_RM    &hrm_rm  RGUI   K
 #define HRM_RR    &hrm_rr  RALT   L
@@ -460,36 +458,6 @@
   >;
 };
 
-// TODO: enable caps_word with both shifts pressed
-
-// ------------------------------------------------------------------------
-// Default Mod-Tap (&mt) keycode
-// ------------------------------------------------------------------------
-&mt {
-    flavor = "tap-preferred";
-    tapping-term-ms = <TAPPING_TERM>;
-    quick-tap-ms = <(TAPPING_TERM - 50)>;
-    require-prior-idle-ms = <(TAPPING_TERM - 25)>;
-};
-
-// ------------------------------------------------------------------------
-// Default Layer-Tap (&lt) keycode
-// ------------------------------------------------------------------------
-&lt {
-    flavor = "balanced";
-    tapping-term-ms = <TAPPING_TERM>;
-    quick-tap-ms = <(TAPPING_TERM - 50)>;
-};
-
-// ------------------------------------------------------------------------
-// Default Momentary-Layer (&mo) keycode
-// ------------------------------------------------------------------------
-// e.g., MO_MSE, MO_CSR, etc.
-// &mo {
-//
-// };
-
-
 / {
     // ########################################################################
     // Define Custom Conditional Layers
@@ -536,7 +504,7 @@
             // as unlike QMK, ZMK does not differentiate tap and hold for combo activation, hence typing fj would activate caps word.
             key-positions = <LEFT_SHIFT_KEY RIGHT_SHIFT_KEY>;
             bindings = <&caps_word>;
-            // layers = <0 1 2 3 4 5>;
+            // layers = <0 1 2 3 4 5 6 7 8 9 10 11>;
         };
 
     };
