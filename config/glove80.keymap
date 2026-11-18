@@ -357,6 +357,9 @@
 #define MD_MPRV &kp C_PREV
 #define MD_MNXT &kp C_NEXT
 
+// ------- Define Aliases: Misc keys  -------
+#define CALC &kp C_AL_CALCULATOR
+
 // ---------------------------------------------------------------
 // Define Aliases: OS specific actions
 // ---------------------------------------------------------------
@@ -416,10 +419,8 @@
   #define _GLOBE  LGUI
 
   // ------- Define Aliases: Apps  -------
-  #define FIREFOX LC(LA(LS(N1)))
+  #define FIREFOX &kp LC(LA(LS(N1)))
 
-  // ------- Define Aliases: Misc keys  -------
-  #define CALC C_AL_CALCULATOR
 #endif
 // Aliases shared across all OSes
 #define _SLEEP      C_SLEEP
