@@ -358,7 +358,7 @@
 #define MD_MNXT &kp C_NEXT
 
 // ------- Define Aliases: Misc keys  -------
-#define KC_CALC &kp C_AL_CALC
+#define KC_CALC &kp K_CALC
 
 // ---------------------------------------------------------------
 // Define Aliases: OS specific actions
