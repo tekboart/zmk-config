@@ -358,7 +358,7 @@
 #define MD_MNXT &kp C_NEXT
 
 // ------- Define Aliases: Misc keys  -------
-#define CALC C_AL_CALC
+#define CALC K_CALCULATOR
 
 // ---------------------------------------------------------------
 // Define Aliases: OS specific actions
@@ -418,7 +418,7 @@
   #define _FILES  LG(E)
   #define _GLOBE  LGUI
 
-  #define FIREFOX LC(LA(LSHIFT(1)))
+  #define FIREFOX LC(LA(LS(N1)))
 #endif
 // Aliases shared across all OSes
 #define _SLEEP      C_SLEEP
