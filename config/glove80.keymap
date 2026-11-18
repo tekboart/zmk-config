@@ -420,6 +420,10 @@
 
   // ------- Define Aliases: Apps  -------
   #define AP_FFOX &kp LC(LA(LS(N1)))
+  #define AP_CHRM &kp LC(LA(LS(N2)))
+  #define AP_TERM &kp LC(LA(T))
+  #define AP_FEXP &kp LG(E)
+  #define AP_SSHT &kp LG(LS(S))
 
 #endif
 
@@ -1130,16 +1134,13 @@
         };
 
         // TODO: Add UR_GPT
-        // TODO: Add AP_TERM
-        // TODO: Add AP_CHRM
-        // TODO: Add AP_FFOX
         function {
             bindings = <
             &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
             &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
-            &kp INS   MD_MUTE   MD_VOLD   MD_VOLU   &none     &none                                                                 &none     &kp F7    &kp F8    &kp F9    &kp F10   &kp F13
-            &kp CAPS  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT &none                                                                 &none     &kp F4    &kp F5    &kp F6    &kp F11   &kp F14
-            TG_TYP    MD_MPLY   MD_MPRV   MD_MNXT   &none     AP_FFOX   &trans    &trans    &trans    &trans    &trans    &trans    &none     &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
+            &kp INS   MD_MUTE   MD_VOLD   MD_VOLU   &none     AP_TERM                                                               AP_SSHT   &kp F7    &kp F8    &kp F9    &kp F10   &kp F13
+            &kp CAPS  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT AP_CHRM                                                               &none     &kp F4    &kp F5    &kp F6    &kp F11   &kp F14
+            TG_TYP    MD_MPLY   MD_MPRV   MD_MNXT   &none     AP_FFOX   &trans    &trans    &trans    &trans    &trans    &trans    AP_FEXP   &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
             &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
