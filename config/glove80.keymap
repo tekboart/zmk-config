@@ -76,6 +76,12 @@
 #define RIGHT_RINGY_KEY 43
 #define RIGHT_PINKY_KEY 44
 
+// ------------------------------------------------------------------------
+// Define Shift Key Positions (used for caps word activation)
+// ------------------------------------------------------------------------
+#define LEFT_SHIFT_KEY  46
+#define RIGHT_SHIFT_KEY 63
+
 // ########################################################################
 // Tap-Hold Configs
 // ########################################################################
@@ -497,12 +503,41 @@
     // ########################################################################
     // combos {
         // -------------------------------------------------------
-        // Copied from Sunsaku's Glove80 keymap
+        // Adapted from Sunsaku's Glove80 keymap
         //
         // -  https://github.com/sunaku/glove80-keymaps/blob/main/keymap.dtsi
         // -------------------------------------------------------
+        compatible = "zmk,combos";
 
-        // TODO: Add Sunsaku's combos here
+        //
+        // COMBO_FIRING_DECAY defines how much time you have left (milliseconds)
+        // after pressing the first key in a ZMK combo to finish the whole chord.
+        //
+        #ifndef COMBO_FIRING_DECAY
+        #define COMBO_FIRING_DECAY 50
+        #endif
+
+        //
+        // SHIFT_FIRING_DECAY defines how much time you have left (milliseconds)
+        // after pressing the first key in the one-shot sticky shift ZMK combo
+        // (on index finger home + thumb cluster T1) to finish the whole chord.
+        //
+        #ifndef SHIFT_FIRING_DECAY
+        #define SHIFT_FIRING_DECAY 50
+        #endif
+
+        // .......................................................
+        // Caps Word Activation combo
+        // .......................................................
+
+        combo_caps_word_both_shifts {
+            timeout-ms = <COMBO_FIRING_DECAY>;
+            // NOTE: Dont use HRM_Index keys instead of shifts
+            // as unlike QMK, ZMK does not differentiate tap and hold for combo activation, hence typing fj would activate caps word.
+            key-positions = <LEFT_SHIFT_KEY RIGHT_SHIFT_KEY>;
+            bindings = <&caps_word>;
+            // layers = <0 1 2 3 4 5>;
+        };
 
     // }
 
