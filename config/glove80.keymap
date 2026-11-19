@@ -980,7 +980,7 @@
             bindings
                 // Launch or focus Firefox using your existing shortcut.
                 // = <AP_FFOX>
-                = <C_AL_WWW>
+                = <&kp C_AL_WWW>
                 // Allow Firefox to start/focus.
                 , <&macro_wait_time 1200>
                 // Focus the address bar.
