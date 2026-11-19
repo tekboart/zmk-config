@@ -576,7 +576,8 @@
         // .......................................................
 
         combo_caps_word_both_shifts {
-            timeout-ms = <COMBO_FIRING_DECAY>;
+            // timeout-ms = <COMBO_FIRING_DECAY>;
+            timeout-ms = <TAPPING_TERM>;
             // NOTE: Dont use HRM_Index keys instead of shifts
             // as unlike QMK, ZMK does not differentiate tap and hold for combo activation, hence typing fj would activate caps word.
             key-positions = <LEFT_SHIFT_KEY RIGHT_SHIFT_KEY>;
@@ -1209,8 +1210,8 @@
             &none            &none            &none            &none            &none                                                                                     &none     &none     &none     &none     &none
             &none            &none            &none            &none            &none     &none                                                                 &none     &none     &none     &none     &none     &none
             &rgb_ug RGB_TOG  BT_PRF0          BT_PRF1          BT_PRF2          BT_PRF3   &out OUT_USB                                                          &none     &none     &none     &none     &none     &none
-            &bootloader      &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &none     TG_GAME                                                               &none     &none     &none     &none     &none     &bootloader
             &none            &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &none     TG_STD    TG_NUM    TG_NAV    &trans    &trans    TG_SYM    TG_FN     &none     TG_BSMC   &none     &none     &none     &none
+            &bootloader      &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &none     TG_GAME                                                               &none     &none     &none     &none     &none     &bootloader
             &trans           &none            &none            &none            &none               TG_CSR    &trans    &trans    &trans    &trans    TG_MSE              &none     &none     &none     &none     &trans
             >;
         };
