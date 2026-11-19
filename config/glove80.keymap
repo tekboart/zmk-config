@@ -955,9 +955,7 @@
             bindings = <&kp _WORD(LS(LEFT))>;
         )
 
-        //
         // select current line
-        //
         select_line: select_line {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -967,12 +965,12 @@
         ZMK_MACRO(select_line_right,
             wait-ms = <SELECT_WORD_DELAY>;
             tap-ms = <SELECT_WORD_DELAY>;
-            bindings = <&kp _HOME &kp LS(_END)>;
+            bindings = <_HOME LS(_END)>;
         )
         ZMK_MACRO(select_line_left,
             wait-ms = <SELECT_WORD_DELAY>;
             tap-ms = <SELECT_WORD_DELAY>;
-            bindings = <&kp _END &kp LS(_HOME)>;
+            bindings = <_END LS(_HOME)>;
         )
         #define SEL_LNE &select_line
 
