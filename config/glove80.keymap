@@ -1184,12 +1184,12 @@
 
         mouse {
             bindings = <
-            &none     &none      &none           &none           &none                                                                                                  &none           &none           &none            &none      &none
-            &none     &none      &none           &none           &none            &none                                                                 &none           &none           &none           &none            &none      &none
-            &none     &none      &mkp MB4        &msc SCRL_UP    &mkp MB5         &none                                                                 &none           &mkp MB4        &mmv MOVE_UP    &mkp MB5         &none      &none
-            &none     &kp LCTRL  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &none                                                                 &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LCTRL  &none
-            &none     &kp _UNDO  &kp _CUT        &kp _COPY       &kp _PASTE       &none     &mkp MB1  &mkp MB2  &trans    &trans    &trans    &trans    &msc SCRL_DOWN  &mkp MB1        &mkp MB3        &mkp MB2         &none      &none
-            &trans    &none      &none           &none           &none                      &mkp MB3  &trans    &trans    &trans    &trans    &trans                    &none           &none           &none            &none      &none
+            &none      &none      &none           &none           &none                                                                                                  &none           &none           &none            &none      &none
+            &none      &none      &none           &none           &none            &none                                                                 &none           &none           &none           &none            &none      &none
+            &none      &none      &mkp MB4        &msc SCRL_UP    &mkp MB5         &none                                                                 &none           &mkp MB4        &mmv MOVE_UP    &mkp MB5         &none      &none
+            &kp K_APP  &kp LCTRL  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &none                                                                 &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LCTRL  &kp K_APP
+            &none      &kp _UNDO  &kp _CUT        &kp _COPY       &kp _PASTE       &none     &mkp MB1  &mkp MB2  &trans    &trans    &trans    &trans    &msc SCRL_DOWN  &mkp MB1        &mkp MB3        &mkp MB2         &none      &none
+            &trans     &none      &none           &none           &none                      &mkp MB3  &trans    &trans    &trans    &trans    &trans                    &none           &none           &none            &none      &none
             >;
         };
 
@@ -1206,12 +1206,12 @@
 
         magic {
             bindings = <
-            &none        &none        &none        &none        &none                                                                                     &none     &none     &none     &none     &none
-            &none        &none        &none        &none        &none     &none                                                                 &none     &none     &none     &none     &none     &none
-            &kp RGB_TOG  BT_PRF0      BT_PRF1      BT_PRF2      BT_PRF3   &out OUT_TOG                                                          &none     &none     &none     &none     &none     &none
-            &bootloader  &kp RGB_HUI  &kp RGB_BRI  &kp RGB_SAI  &none     TG_GAME                                                               &none     &none     &none     &none     &none     &bootloader
-            &none        &kp RGB_HUD  &kp RGB_BRD  &kp RGB_SAD  &none     &none     TG_NUM    TG_NAV    &trans    &trans    TG_SYM    TG_FN     &none     TG_BSMC   &none     &none     &none     &none
-            &trans       &none        &none        &none        &none               TG_CSR    &trans    &trans    &trans    &trans    TG_MSE              &none     &none     &none     &none     &trans
+            &none            &none            &none            &none            &none                                                                                     &none     &none     &none     &none     &none
+            &none            &none            &none            &none            &none     &none                                                                 &none     &none     &none     &none     &none     &none
+            &rgb_ug RGB_TOG  BT_PRF0          BT_PRF1          BT_PRF2          BT_PRF3   &out OUT_USB                                                          &none     &none     &none     &none     &none     &none
+            &bootloader      &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &none     TG_GAME                                                               &none     &none     &none     &none     &none     &bootloader
+            &none            &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &none     TG_STD    TG_NUM    TG_NAV    &trans    &trans    TG_SYM    TG_FN     &none     TG_BSMC   &none     &none     &none     &none
+            &trans           &none            &none            &none            &none               TG_CSR    &trans    &trans    &trans    &trans    TG_MSE              &none     &none     &none     &none     &trans
             >;
         };
 
