@@ -416,6 +416,7 @@
 #if OPERATING_SYSTEM == 'M'
   #define _C      LG
   #define _POWER  K_POWER
+  #define _WORD   LA  // This is needed for Geuter's Select Word.
   #define _GLOBE  GLOBE
 
   // Define Aliases: Apps
@@ -433,6 +434,7 @@
 #else
   #define _C      LC
   #define _POWER  C_POWER
+  #define _WORD   LC  // This is needed for Geuter's Select Word.
   #define _GLOBE  LGUI
 
   // Define Aliases: Apps
