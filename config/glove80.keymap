@@ -830,7 +830,7 @@
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 0>;
         };
-        #define BT_PRF0 &bt_profile_macro_0
+        #define BT_PRF0 &bt_0
 
         bt_1: bt_profile_macro_1 {
             compatible = "zmk,behavior-macro";
@@ -839,7 +839,7 @@
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 1>;
         };
-        #define BT_PRF1 &bt_profile_macro_1
+        #define BT_PRF1 &bt_1
 
         bt_2: bt_profile_macro_2 {
             compatible = "zmk,behavior-macro";
@@ -848,7 +848,7 @@
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 2>;
         };
-        #define BT_PRF2 &bt_profile_macro_2
+        #define BT_PRF2 &bt_2
 
         bt_3: bt_profile_macro_3 {
             compatible = "zmk,behavior-macro";
@@ -857,7 +857,7 @@
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 3>;
         };
-        #define BT_PRF3 &bt_profile_macro_3
+        #define BT_PRF3 &bt_3
 
         // -------------------------------------------------------
         // Copied from Sunsaku's Glove80 keymap
