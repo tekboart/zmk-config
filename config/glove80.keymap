@@ -559,7 +559,7 @@
         // after pressing the first key in a ZMK combo to finish the whole chord.
         //
         #ifndef COMBO_FIRING_DECAY
-        #define COMBO_FIRING_DECAY 50
+        #define COMBO_FIRING_DECAY 80
         #endif
 
         //
@@ -574,18 +574,11 @@
         // .......................................................
         // Caps Word Activation combo
         // .......................................................
-
         combo_caps_word_both_shifts {
-            // timeout-ms = <COMBO_FIRING_DECAY>;
-            timeout-ms = <TAPPING_TERM>;
-            // NOTE: Dont use HRM_Index keys instead of shifts
-            // as unlike QMK, ZMK does not differentiate tap and hold for combo activation, hence typing fj would activate caps word.
+            timeout-ms = <COMBO_FIRING_DECAY>;
             key-positions = <LEFT_SHIFT_KEY RIGHT_SHIFT_KEY>;
             bindings = <&caps_word>;
-            // layers = <0 1 2 3 4 5 6 7 8 9 10 11>;
         };
-
-        // TODO: Add a capsword activation when holding both shifts (not pressing)
 
         // TODO: Pressing magic key twice, will light up the assigned keys in magic key.
 
