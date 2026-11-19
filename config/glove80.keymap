@@ -298,72 +298,71 @@
 
 // ------- Define Aliases: Home Row Mods (HRMs) -------
 // for Win/Linux
-#define HRW_LP    &hrm_lp  LGUI   A
-#define HRW_LR    &hrm_lr  LALT   S
-#define HRW_LM    &hrm_lm  LCTRL  D
-#define HRW_LI    &hrm_li  LSHFT  F
-#define HRW_LME   &hrm_lim MEH_L  G
-#define HRW_RME   &hrm_rim MEH_R  H
-#define HRW_RI    &hrm_ri  RSHFT  J
-#define HRW_RM    &hrm_rm  RCTRL  K
-#define HRW_RR    &hrm_rr  RALT   L
-#define HRW_RP    &hrm_rp  RGUI   SEMI
+#define HRW_LP   &hrm_lp  LGUI   A
+#define HRW_LR   &hrm_lr  LALT   S
+#define HRW_LM   &hrm_lm  LCTRL  D
+#define HRW_LI   &hrm_li  LSHFT  F
+#define HRW_LME  &hrm_lim MEH_L  G
+#define HRW_RME  &hrm_rim MEH_R  H
+#define HRW_RI   &hrm_ri  RSHFT  J
+#define HRW_RM   &hrm_rm  RCTRL  K
+#define HRW_RR   &hrm_rr  RALT   L
+#define HRW_RP   &hrm_rp  RGUI   SEMI
 // for MAC
-#define HRM_LP    &hrm_lp  LCTRL  A
-#define HRM_LR    &hrm_lr  LALT   S
-#define HRM_LM    &hrm_lm  LGUI   D
-#define HRM_LI    &hrm_li  LSHFT  F
-#define HRM_LME   &hrm_lim MEH_L  G
-#define HRM_RME   &hrm_rim MEH_R  H
-#define HRM_RI    &hrm_ri  RSHFT  J
-#define HRM_RM    &hrm_rm  RGUI   K
-#define HRM_RR    &hrm_rr  RALT   L
-#define HRM_RP    &hrm_rp  RCTRL  SEMI
+#define HRM_LP   &hrm_lp  LCTRL  A
+#define HRM_LR   &hrm_lr  LALT   S
+#define HRM_LM   &hrm_lm  LGUI   D
+#define HRM_LI   &hrm_li  LSHFT  F
+#define HRM_LME  &hrm_lim MEH_L  G
+#define HRM_RME  &hrm_rim MEH_R  H
+#define HRM_RI   &hrm_ri  RSHFT  J
+#define HRM_RM   &hrm_rm  RGUI   K
+#define HRM_RR   &hrm_rr  RALT   L
+#define HRM_RP   &hrm_rp  RCTRL  SEMI
 
 // ------- Define Aliases: Symbols -------
-#define SM_EXCL   &kp  EXCL // !
-#define SM_ADS    &kp  AT // @
-#define SM_HASH   &kp  HASH // #
-#define SM_DLR    &kp  DLLR // $
-#define SM_PERC   &kp  PRCNT // %
-#define SM_CRET   &kp  CARET // ^
-#define SM_AMPS   &kp  AMPS // &
-#define SM_ASTR   &kp  ASTERISK // *
-#define SM_LPRN   &kp  LPAR // (
-#define SM_RPRN   &kp  RPAR // )
-#define SM_LBRC   &kp  LBKT // [
-#define SM_RBRC   &kp  RBKT // ]
-#define SM_LCBR   &kp  LBRC // {
-#define SM_RCBR   &kp  RBRC // }
-#define SM_TICK   &kp  GRAVE // `
-#define SM_TILD   &kp  TILDE // ~
-#define SM_COMM   &kp  COMMA // ,
-#define SM_LT     &kp  LT // <
-#define SM_DOT    &kp  DOT // .
-#define SM_GT     &kp  GT // >
-#define SM_SLSH   &kp  FSLH // /
-#define SM_QUES   &kp  QMARK // ?
-#define SM_BSLS   &kp  BSLH // \ Backslash
-#define SM_PIPE   &kp  PIPE // |
-#define SM_COLN   &kp  COLON // :
-#define SM_SCLN   &kp  SEMI // ;
-#define SM_DQT    &kp  DQT // "
-#define SM_QUOT   &kp  SQT // '
-#define SM_EQL    &kp  EQUAL // =
-#define SM_PLUS   &kp  PLUS // +
-#define SM_MINS   &kp  MINUS // -
-#define SM_UNDS   &kp  UNDER // _
+#define SM_EXCL  EXCL // !
+#define SM_ADS   AT // @
+#define SM_HASH  HASH // #
+#define SM_DLR   DLLR // $
+#define SM_PERC  PRCNT // %
+#define SM_CRET  CARET // ^
+#define SM_AMPS  AMPS // &
+#define SM_ASTR  ASTERISK // *
+#define SM_LPRN  LPAR // (
+#define SM_RPRN  RPAR // )
+#define SM_LBRC  LBKT // [
+#define SM_RBRC  RBKT // ]
+#define SM_LCBR  LBRC // {
+#define SM_RCBR  RBRC // }
+#define SM_TICK  GRAVE // `
+#define SM_TILD  TILDE // ~
+#define SM_COMM  COMMA // ,
+#define SM_LT    LT // <
+#define SM_DOT   DOT // .
+#define SM_GT    GT // >
+#define SM_SLSH  FSLH // /
+#define SM_QUES  QMARK // ?
+#define SM_BSLS  BSLH // \ Backslash
+#define SM_PIPE  PIPE // |
+#define SM_COLN  COLON // :
+#define SM_SCLN  SEMI // ;
+#define SM_DQT   DQT // "
+#define SM_QUOT  SQT // '
+#define SM_EQL   EQUAL // =
+#define SM_PLUS  PLUS // +
+#define SM_MINS  MINUS // -
+#define SM_UNDS  UNDER // _
 
 // ------- Define Aliases: Media keys  -------
-#define MD_MUTE &kp C_MUTE
-#define MD_VOLU &kp C_VOL_UP
-#define MD_VOLD &kp C_VOL_DN
-#define MD_MPLY &kp C_PLAY_PAUSE
-#define MD_MPRV &kp C_PREV
-#define MD_MNXT &kp C_NEXT
+#define MD_MUTE  C_MUTE
+#define MD_VOLU  C_VOL_UP
+#define MD_VOLD  C_VOL_DN
+#define MD_MPLY  C_PLAY_PAUSE
+#define MD_MPRV  C_PREV
+#define MD_MNXT  C_NEXT
 
 // ------- Define Aliases: Misc keys  -------
-#define KC_CALC &kp K_CALC
 
 // ---------------------------------------------------------------
 // Define Aliases: OS specific actions
@@ -416,38 +415,44 @@
 #if OPERATING_SYSTEM == 'M'
   #define _C      LG
   #define _POWER  K_POWER
-  #define _WORD   LA  // This is needed for Geuter's Select Word.
   #define _GLOBE  GLOBE
 
+  // The Text modifier--used for Getreuer's Select Word
+  #define _WORD   LA
+
   // Define Aliases: Apps
-  #define AP_FFOX &kp ???
-  #define AP_CHRM &kp ???
-  #define AP_TERM &kp ???
-  #define AP_FEXP &kp &kp LS(LA(M))
-  #define AP_SSHT &kp LG(LS(N4))
-  #define AP_EMOJ &kp LA(LC(SPACE))
+  #define AP_FFOX ???
+  #define AP_CHRM ???
+  #define AP_TERM ???
+  #define AP_FEXP &kp LS(LA(M))
+  #define AP_SSHT LG(LS(N4))
+  #define AP_EMOJ LA(LC(SPACE))
+  #define AP_CALC  ???
 
   // Define Aliases: Editing
-  #define _HOME     &kp HOME
-  #define _END      &kp END
+  #define _HOME   LG(LEFT)
+  #define _END    LG(RIGHT)
 
 #else
   #define _C      LC
   #define _POWER  C_POWER
-  #define _WORD   LC  // This is needed for Geuter's Select Word.
   #define _GLOBE  LGUI
 
+  // The Text modifier--used for Getreuer's Select Word
+  #define _WORD   LC
+
   // Define Aliases: Apps
-  #define AP_FFOX &kp LC(LA(LS(N1)))
-  #define AP_CHRM &kp LC(LA(LS(N2)))
-  #define AP_TERM &kp LC(LA(T))
-  #define AP_FEXP &kp LG(E)
-  #define AP_SSHT &kp LG(LS(S))
-  #define AP_EMOJ &kp LG(DOT)
+  #define AP_FFOX  LC(LA(LS(N1)))
+  #define AP_CHRM  LC(LA(LS(N2)))
+  #define AP_TERM  LC(LA(T))
+  #define AP_FEXP  LG(E)
+  #define AP_SSHT  LG(LS(S))
+  #define AP_EMOJ  LG(DOT)
+  #define AP_CALC  K_CALC
 
   // Define Aliases: Editing
-  #define _HOME     &kp HOME
-  #define _END      &kp END
+  #define _HOME   HOME
+  #define _END    END
 
 #endif
 
@@ -463,14 +468,14 @@
 // ...............................................................
 
 // Define Aliases: Editing
-#define _UNDO       &kp _C(Z)
-#define _REDO       &kp _C(LS(Z))
-#define _CUT        &kp _C(X)
-#define _COPY       &kp _C(C)
-#define _PASTE      &kp _C(V)
-#define _FIND       &kp _C(F)
-#define _FIND_NEXT  &kp _C(G)
-#define _FIND_PREV  &kp _C(LS(G))
+#define _UNDO       _C(Z)
+#define _REDO       _C(LS(Z))
+#define _CUT        _C(X)
+#define _COPY       _C(C)
+#define _PASTE      _C(V)
+#define _FIND       _C(F)
+#define _FIND_NEXT  _C(G)
+#define _FIND_PREV  _C(LS(G))
 
 // ########################################################################
 // ZMK global overrides
@@ -929,12 +934,12 @@
         ZMK_MACRO(select_line_right,
             wait-ms = <SELECT_WORD_DELAY>;
             tap-ms = <SELECT_WORD_DELAY>;
-            bindings = <_HOME LS(_END)>;
+            bindings = <&kp _HOME &kp LS(_END)>;
         )
         ZMK_MACRO(select_line_left,
             wait-ms = <SELECT_WORD_DELAY>;
             tap-ms = <SELECT_WORD_DELAY>;
-            bindings = <_END LS(_HOME)>;
+            bindings = <&kp _END &kp LS(_HOME)>;
         )
         #define SEL_LNE &select_line
 
@@ -1095,41 +1100,41 @@
             &trans    &trans    &kp W     &trans    &trans    &trans                                                                &trans  &trans   &kp UP     &trans      &trans      &trans
             &trans    &kp A     &kp S     &kp D     &trans    &trans                                                                &trans  &kp LEFT &kp DOWN   &kp RIGHT   &trans      &trans
             &trans    &trans    &trans    &trans    &trans    &trans    &kp TAB   &none     &none     &none     &none     &kp ESC   &trans  &trans   &trans     &trans      &trans      &trans
-            &trans    &trans    &trans    &trans    &trans              &kp BSPC  &kp SPACE &none     &none     &kp DEL   &kp RET   &trans  &trans   &trans     &trans      &trans
+            &trans    &trans    &trans    &trans    &trans              &kp BSPC  &kp SPACE &none     &none     &kp DEL   &kp RET           &trans   &trans     &trans      &trans      &trans
             >;
         };
 
         symbol {
             bindings = <
-            &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
-            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
-            SM_EXCL   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
-            SM_HASH   SM_CRET   SM_EQL    SM_UNDS   SM_DLR    SM_ASTR                                                               &none     &kp RSHFT &kp RCTRL &kp RALT  &kp RGUI  MC_TICK
-            SM_AMPS   SM_LT     SM_PIPE   SM_MINS   SM_GT     SM_PLUS   SM_PERC   SM_ADS    &trans    &trans    &trans    &trans    &kp TAB   &kp SPC   &kp RET   &kp BSPC  &kp DEL   &none
-            &trans    &none     &none     &none     &none               SM_PERC   SM_ADS    &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
+            &none        &none        &none        &none        &none                                                                                                     &none     &none     &none     &none     &none
+            &none        &none        &none        &none        &none         &none                                                                             &none     &none     &none     &none     &none     &none
+            &kp SM_EXCL  &kp N1       &kp N2       &kp N3       &kp N4        &kp N5                                                                            &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
+            &kp SM_HASH  &kp SM_CRET  &kp SM_EQL   &kp SM_UNDS  &kp SM_DLR    &kp SM_ASTR                                                                       &none     &kp RSHFT &kp RCTRL &kp RALT  &kp RGUI  MC_TICK
+            &kp SM_AMPS  &kp SM_LT    &kp SM_PIPE  &kp SM_MINS  &kp SM_GT     &kp SM_PLUS   &kp SM_PERC   &kp SM_ADS    &trans    &trans    &trans    &trans    &kp TAB   &kp SPC   &kp RET   &kp BSPC  &kp DEL   &none
+            &trans       &none        &none        &none        &none                       &trans        &trans        &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
 
         // TODO: add DEL_NORM
         navigate {
             bindings = <
-            &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
-            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
-            &none     &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
-            &kp DEL   &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT SEL_WRD                                                               _HOME     &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT _END
-            &none     _UNDO     _CUT      _COPY     _PASTE    SEL_LNE   &trans    &trans    &trans    &trans    SM_BSLS   SM_TICK   SM_LBRC   SM_LCBR   SM_LPRN   SM_RPRN   SM_RCBR   SM_RBRC
-            &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    SM_BSLS   SM_TICK             &none     &none     &none     &none     &none
+            &none     &none     &none     &none      &none                                                                                                   &none         &none         &none         &none         &none
+            &none     &none     &none     &none      &none       &none                                                                         &none         &none         &none         &none         &none         &none
+            &none     &kp N1    &kp N2    &kp N3     &kp N4      &kp N5                                                                        &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &none
+            &kp DEL   &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT   SEL_WRD                                                                       &kp _HOME     &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp _END
+            &none     &kp _UNDO &kp _CUT  &kp _COPY  &kp _PASTE  SEL_LNE   &trans    &trans    &trans    &trans    &kp SM_BSLS   &kp SM_TICK   &kp SM_LBRC   &kp SM_LCBR   &kp SM_LPRN   &kp SM_RPRN   &kp SM_RCBR   &kp SM_RBRC
+            &trans    &none     &none     &none      &none                 &trans    &trans    &trans    &trans    &kp SM_BSLS   &kp SM_TICK                 &none         &none         &none         &none         &none
             >;
         };
 
         number {
             bindings = <
-            &none     &none     &none     &none     &none                                                                                       &none     &none     &none     &none            &none
-            &none     &none     &none     &none     &none     &none                                                                  &none      &none     &none     &none     &none            &none
-            &none     &kp DEL   &kp BSPC  &kp RET   &kp SPC   &none                                                                  &kp KP_NUM &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp COLON        &kp PRCNT
-            KC_CALC   &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT SEL_WRD                                                                &kp LPAR   &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS     &kp KP_PLUS
-            &none     _UNDO     _CUT      _COPY     _PASTE    SEL_LNE   &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT &kp RPAR   &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY  &kp KP_DIVIDE
-            &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT            &none     &none     &none     &none            &none
+            &none        &none      &none      &none      &none                                                                                           &none      &none      &none      &none            &none
+            &none        &none      &none      &none      &none       &none                                                                   &none       &none      &none      &none      &none            &none
+            &none        &kp DEL    &kp BSPC   &kp RET    &kp SPC     &none                                                                   &kp KP_NUM  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp COLON        &kp PRCNT
+            &kp AP_CALC  &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT   SEL_WRD                                                                 &kp LPAR    &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_MINUS     &kp KP_PLUS
+            &none        &kp _UNDO  &kp _CUT   &kp _COPY  &kp _PASTE  SEL_LNE   &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT  &kp RPAR    &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_MULTIPLY  &kp KP_DIVIDE
+            &trans       &none      &none      &none      &none                 &trans    &trans    &trans    &trans    &kp KP_N0 &kp KP_DOT              &none      &none      &none      &none            &none
             >;
         };
 
@@ -1158,12 +1163,12 @@
         // TODO: Add UR_GPT
         function {
             bindings = <
-            &none     &none     &none     &none     &none                                                                                     &none     &none     &none     &none     &none
-            &none     &none     &none     &none     &none     &none                                                                 &none     &none     &none     &none     &none     &none
-            &kp INS   MD_MUTE   MD_VOLD   MD_VOLU   &none     AP_TERM                                                               AP_SSHT   &kp F7    &kp F8    &kp F9    &kp F10   &kp F13
-            &kp CAPS  &kp LGUI  &kp LALT  &kp LCTRL &kp LSHFT AP_CHRM                                                               AP_EMOJ   &kp F4    &kp F5    &kp F6    &kp F11   &kp F14
-            TG_TYP    MD_MPLY   MD_MPRV   MD_MNXT   UR_GPT    AP_FFOX   &trans    &trans    &trans    &trans    &trans    &trans    AP_FEXP   &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
-            &trans    &none     &none     &none     &none               &trans    &trans    &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
+            &none     &none        &none        &none        &none                                                                                              &none     &none     &none     &none     &none
+            &none     &none        &none        &none        &none      &none                                                                     &none         &none     &none     &none     &none     &none
+            &kp INS   &kp MD_MUTE  &kp MD_VOLD  &kp MD_VOLU  &none      &kp AP_TERM                                                               &kp AP_SSHT   &kp F7    &kp F8    &kp F9    &kp F10   &kp F13
+            &kp CAPS  &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT  &kp AP_CHRM                                                               &kp AP_EMOJ   &kp F4    &kp F5    &kp F6    &kp F11   &kp F14
+            TG_TYP    &kp MD_MPLY  &kp MD_MPRV  &kp MD_MNXT  UR_GPT     &kp AP_FFOX   &trans    &trans    &trans    &trans    &trans    &trans    &kp AP_FEXP   &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
+            &trans    &none        &none        &none        &none                    &trans    &trans    &trans    &trans    &trans    &trans                  &none     &none     &none     &none     &none
             >;
         };
 
