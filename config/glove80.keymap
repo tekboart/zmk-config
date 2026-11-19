@@ -968,46 +968,49 @@
         // ME macros
         // -------------------------------------------------------
         // .......................................................
-        // Open ChatGPT in Firefox.
+        // Open ChatGPT in (default) Browser.
         // .......................................................
+        ZMK_MACRO(open_gpt_in_browser,
         // ur_gpt: ur_gpt {
-        //     compatible = "zmk,behavior-macro";
-        //     #binding-cells = <0>;
-        //     wait-ms = <0>;
-        //     // tap-ms = <0>;
-        //     tap-ms = <30>;
-        //     bindings
-        //         // Launch or focus Firefox using your existing shortcut.
-        //         = <AP_FFOX>
-        //         // Allow Firefox to start/focus.
-        //         , <&macro_wait_time 1200>
-        //         // Focus the address bar.
-        //         , <&kp LC(L)>
-        //         // Allow the address bar to receive focus.
-        //         // , <&macro_wait_time 50>
-        //         // Type the first URL character after the 50 ms delay.
-        //         // , <&kp H>
-        //         // Use the normal inter-key delay for the remaining URL.
-        //         // , <&macro_wait_time 30>
+            // compatible = "zmk,behavior-macro";
+            // #binding-cells = <0>;
+            wait-ms = <0>;
+            // tap-ms = <0>;
+            tap-ms = <30>;
+            bindings
+                // Launch or focus Firefox using your existing shortcut.
+                // = <AP_FFOX>
+                = <C_AL_WWW>
+                // Allow Firefox to start/focus.
+                , <&macro_wait_time 1200>
+                // Focus the address bar.
+                , <&kp LC(L)>
+                // Allow the address bar to receive focus.
+                // , <&macro_wait_time 50>
+                // Type the first URL character after the 50 ms delay.
+                // , <&kp H>
+                // Use the normal inter-key delay for the remaining URL.
+                // , <&macro_wait_time 30>
 
-        //         // https
-        //         , <&kp H &kp T &kp T &kp P &kp S>
+                // https
+                , <&kp H &kp T &kp T &kp P &kp S>
 
-        //         // ://
-        //         , <&kp COLON &kp FSLH &kp FSLH>
+                // ://
+                , <&kp COLON &kp FSLH &kp FSLH>
 
-        //         // chatgpt
-        //         , <&kp C &kp H &kp A &kp T>
-        //         , <&kp G &kp P &kp T>
+                // chatgpt
+                , <&kp C &kp H &kp A &kp T>
+                , <&kp G &kp P &kp T>
 
-        //         // .com/
-        //         , <&kp DOT &kp C &kp O &kp M &kp FSLH>
+                // .com/
+                , <&kp DOT &kp C &kp O &kp M &kp FSLH>
 
-        //         // Navigate.
-        //         , <&kp ENTER>
-        //         ;
+                // Navigate.
+                , <&kp ENTER>
+                ;
         // };
-        // #define UR_GPT &ur_gpt
+        )
+        #define MC_GPT &open_gpt_in_browser
 
     };
 
@@ -1160,14 +1163,14 @@
             >;
         };
 
-        // TODO: Add UR_GPT
+        // TODO: Add MC_GPT
         function {
             bindings = <
             &none     &none        &none        &none        &none                                                                                              &none     &none     &none     &none     &none
             &none     &none        &none        &none        &none      &none                                                                     &none         &none     &none     &none     &none     &none
             &kp INS   &kp MD_MUTE  &kp MD_VOLD  &kp MD_VOLU  &none      &kp AP_TERM                                                               &kp AP_SSHT   &kp F7    &kp F8    &kp F9    &kp F10   &kp F13
             &kp CAPS  &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT  &kp AP_CHRM                                                               &kp AP_EMOJ   &kp F4    &kp F5    &kp F6    &kp F11   &kp F14
-            TG_TYP    &kp MD_MPLY  &kp MD_MPRV  &kp MD_MNXT  UR_GPT     &kp AP_FFOX   &trans    &trans    &trans    &trans    &trans    &trans    &kp AP_FEXP   &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
+            TG_TYP    &kp MD_MPLY  &kp MD_MPRV  &kp MD_MNXT  MC_GPT     &kp AP_FFOX   &trans    &trans    &trans    &trans    &trans    &trans    &kp AP_FEXP   &kp F1    &kp F2    &kp F3    &kp F12   &kp F15
             &trans    &none        &none        &none        &none                    &trans    &trans    &trans    &trans    &trans    &trans                  &none     &none     &none     &none     &none
             >;
         };
