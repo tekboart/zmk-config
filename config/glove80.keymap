@@ -999,7 +999,9 @@
         // .......................................................
         // Open ChatGPT in Firefox.
         // .......................................................
-        ZMK_MACRO(ur_gpt,
+        ur_gpt: ur_gpt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             wait-ms = <0>;
             // tap-ms = <0>;
             tap-ms = <30>;
@@ -1033,7 +1035,7 @@
                 // Navigate.
                 , <&kp ENTER>
                 ;
-        )
+        };
         #define UR_GPT &ur_gpt
     };
 
