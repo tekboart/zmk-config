@@ -250,20 +250,18 @@
 
 // --- Thumb Layer ---
 // Symbol Layer
-#define LT_SYM   &thmb_ent  _SYMBOL RET
-#define MO_SYM   &mo  _SYMBOL
-#define TG_SYM   &tog _SYMBOL
-#define TO_SYM   &to  _SYMBOL
-// SYM layer accessed through the NAV layer
-#define LT_SYM_NAV   &thmb  _SYMBOL SM_BSLS
+#define LT_SYM      &thmb_ent  _SYMBOL RET
+#define LT_SYM_NAV  &thmb      _SYMBOL SM_BSLS  // SYM layer accessed through the NAV layer
+#define MO_SYM      &mo        _SYMBOL
+#define TG_SYM      &tog       _SYMBOL
+#define TO_SYM      &to        _SYMBOL
 
 // Navigation Layer
-#define LT_NAV   &thmb_spc  _NAVIGATE SPC
-#define MO_NAV   &mo  _NAVIGATE
-#define TG_NAV   &tog _NAVIGATE
-#define TO_NAV   &to  _NAVIGATE
-// NAV layer accessed through the SYM layer
-#define LT_NAV_SYM   &lt  _NAVIGATE SM_ADS
+#define LT_NAV      &thmb_spc  _NAVIGATE SPC
+#define LT_NAV_SYM  &thmb      _NAVIGATE SM_ADS // NAV layer accessed through the SYM layer
+#define MO_NAV      &mo        _NAVIGATE
+#define TG_NAV      &tog       _NAVIGATE
+#define TO_NAV      &to        _NAVIGATE
 
 // Number Layer
 #define LT_NUM   &thmb_tap  _NUMBER TAB
