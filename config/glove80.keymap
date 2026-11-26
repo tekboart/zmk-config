@@ -254,12 +254,16 @@
 #define MO_SYM   &mo  _SYMBOL
 #define TG_SYM   &tog _SYMBOL
 #define TO_SYM   &to  _SYMBOL
+// SYM layer accessed through the NAV layer
+#define LT_SYM_NAV   &thmb  _SYMBOL SM_BSLS
 
 // Navigation Layer
 #define LT_NAV   &thmb_spc  _NAVIGATE SPC
 #define MO_NAV   &mo  _NAVIGATE
 #define TG_NAV   &tog _NAVIGATE
 #define TO_NAV   &to  _NAVIGATE
+// NAV layer accessed through the SYM layer
+#define LT_NAV_SYM   &lt  _NAVIGATE SM_ADS
 
 // Number Layer
 #define LT_NUM   &thmb_tap  _NUMBER TAB
@@ -1137,7 +1141,7 @@
             &none        &none        &none        &none        &none         &none                                                                             &none     &none     &none     &none     &none     &none
             &kp SM_EXCL  &kp N1       &kp N2       &kp N3       &kp N4        &kp N5                                                                            &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &none
             &kp SM_HASH  &kp SM_CRET  &kp SM_EQL   &kp SM_UNDS  &kp SM_DLR    &kp SM_ASTR                                                                       &none     &kp RSHFT &kp RCTRL &kp RALT  &kp RGUI  MC_TICK
-            &kp SM_AMPS  &kp SM_LT    &kp SM_PIPE  &kp SM_MINS  &kp SM_GT     &kp SM_PLUS   &kp SM_PERC   &kp SM_ADS    &trans    &trans    &trans    &trans    &kp TAB   &kp SPC   &kp RET   &kp BSPC  &kp DEL   &none
+            &kp SM_AMPS  &kp SM_LT    &kp SM_PIPE  &kp SM_MINS  &kp SM_GT     &kp SM_PLUS   &kp SM_PERC   LT_NAV_SYM    &trans    &trans    &trans    &trans    &kp TAB   &kp SPC   &kp RET   &kp BSPC  &kp DEL   &none
             &trans       &none        &none        &none        &none                       &trans        &trans        &trans    &trans    &trans    &trans              &none     &none     &none     &none     &none
             >;
         };
@@ -1149,8 +1153,8 @@
             &none     &none     &none     &none      &none       &none                                                                         &none         &none         &none         &none         &none         &none
             &none     &kp N1    &kp N2    &kp N3     &kp N4      &kp N5                                                                        &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &none
             &kp DEL   &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT   SEL_WRD                                                                       &kp _HOME     &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp _END
-            &none     &kp _UNDO &kp _CUT  &kp _COPY  &kp _PASTE  SEL_LNE   &trans    &trans    &trans    &trans    &kp SM_BSLS   &kp SM_TICK   &kp SM_LBRC   &kp SM_LCBR   &kp SM_LPRN   &kp SM_RPRN   &kp SM_RCBR   &kp SM_RBRC
-            &trans    &none     &none     &none      &none                 &trans    &trans    &trans    &trans    &kp SM_BSLS   &kp SM_TICK                 &none         &none         &none         &none         &none
+            &none     &kp _UNDO &kp _CUT  &kp _COPY  &kp _PASTE  SEL_LNE   &trans    &trans    &trans    &trans    LT_SYM_NAV    &kp SM_TICK   &kp SM_LBRC   &kp SM_LCBR   &kp SM_LPRN   &kp SM_RPRN   &kp SM_RCBR   &kp SM_RBRC
+            &trans    &none     &none     &none      &none                 &trans    &trans    &trans    &trans    &trans        &trans                      &none         &none         &none         &none         &none
             >;
         };
 
